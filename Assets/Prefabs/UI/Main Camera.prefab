@@ -133,5 +133,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _x: 0
-  _y: 50
-  _z: -50
+  _y: 30
+  _z: -25

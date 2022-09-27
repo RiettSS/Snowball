@@ -19752,16 +19752,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 193464422627646027, guid: fa42cdd592db8144d8950b97414d5f0e,
-        type: 3}
-      propertyPath: _y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 193464422627646027, guid: fa42cdd592db8144d8950b97414d5f0e,
-        type: 3}
-      propertyPath: _z
-      value: -30
-      objectReference: {fileID: 0}
     - target: {fileID: 193464422627646028, guid: fa42cdd592db8144d8950b97414d5f0e,
         type: 3}
       propertyPath: m_Cameras.Array.data[0]
