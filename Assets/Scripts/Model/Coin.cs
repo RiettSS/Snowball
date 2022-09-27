@@ -1,7 +1,11 @@
-﻿namespace Model
+﻿using System;
+
+namespace Model
 {
     public class Coin
     {
+        public event Action OnRelease;
+        
         public readonly int Cost;
 
         private CollisionHandler _collisionHandler;
@@ -15,6 +19,11 @@
         public void Collide()
         {
             _collisionHandler.Handle(this);
+        }
+
+        public void Release()
+        {
+            OnRelease?.Invoke();
         }
     }
 }

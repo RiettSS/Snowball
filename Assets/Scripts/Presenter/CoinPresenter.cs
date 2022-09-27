@@ -1,5 +1,6 @@
 ﻿using System;
 using Model;
+using Unity.VisualScripting.FullSerializer.Internal.Converters;
 using View;
 using Zenject;
 
@@ -19,11 +20,13 @@ namespace Presenter
         public void Initialize()
         {
             _coinView.OnCollisionDetected += _coin.Collide;
+            _coin.OnRelease += _coinView.Release;
         }
 
         public void Dispose()
         {
             _coinView.OnCollisionDetected += _coin.Collide;
+            _coin.OnRelease -= _coinView.Release;
         }
     }
 }
