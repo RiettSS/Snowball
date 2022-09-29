@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using UnityEngine;
 
 namespace Model
 {
@@ -7,21 +8,24 @@ namespace Model
         public int Coins => _coins.Value;
         
         private CoinsAmount _coins;
-        private const string FileName = "coins.txt";
+        private readonly string _fileName;
 
         public Wallet()
         {
             _coins = new CoinsAmount(0);
 
-            if (!File.Exists(FileName))
+            _fileName = Application.persistentDataPath + "/coins.txt";
+            
+            if (!File.Exists(_fileName))
             {
-                File.Create(FileName);
-                File.WriteAllText(FileName, "0");
+                File.Create(_fileName);
+                File.WriteAllText(_fileName, "0");
             }
             else
             {
                 LoadCoins();
             }
+            
         }
         
         public Wallet(int coins)
@@ -41,12 +45,12 @@ namespace Model
 
         public void SaveCoins()
         {
-            File.WriteAllText(FileName, _coins.Value.ToString());
+            File.WriteAllText(_fileName, _coins.Value.ToString());
         }
 
         public void LoadCoins()
         {
-            var content = File.ReadAllText(FileName);
+            var content = File.ReadAllText(_fileName);
             int.TryParse(content, out var coins);
             _coins = new CoinsAmount(coins);
         }

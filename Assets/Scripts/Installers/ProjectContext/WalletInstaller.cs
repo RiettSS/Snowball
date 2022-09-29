@@ -7,7 +7,7 @@ namespace Installers.ProjectContext
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<Wallet>().AsSingle();
+            Container.Bind<Wallet>().AsSingle().NonLazy();
         }
     }
 }

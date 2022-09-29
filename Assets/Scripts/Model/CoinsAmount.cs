@@ -1,10 +1,8 @@
-﻿
-
-using System;
-using UnityEngine;
+﻿using System;
 
 namespace Model
 {
+    [Serializable]
     public struct CoinsAmount
     {
         public readonly int Value;

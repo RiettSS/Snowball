@@ -6,8 +6,7 @@ using Zenject;
 public class StoreWindow : MonoBehaviour
 {
     [SerializeField] private TMP_Text _coinsText;
-    //make private
-    public Wallet _wallet;
+    private Wallet _wallet;
     
     [Inject]
     public void Construct(Wallet wallet)

@@ -5,7 +5,7 @@ namespace Model
     public class Finish
     {
         private readonly CollisionHandler _collisionHandler;
-        private readonly ScoreSystem _scoreSystem;
+        private readonly ScoreSystem _scoreSystem; 
         private readonly PopUpShower _popUpShower;
         
         public Finish(CollisionHandler collisionHandler, ScoreSystem scoreSystem, PopUpShower popUpShower)
