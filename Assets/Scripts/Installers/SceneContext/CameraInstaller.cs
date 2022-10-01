@@ -6,10 +6,10 @@ namespace Installers.SceneContext
 {
     public class CameraInstaller : MonoInstaller
     {
-        [SerializeField] private CameraMovement _cameraMovement;
+        [SerializeField] private BallFollower _ballFollower;
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<CameraMovement>().FromInstance(_cameraMovement).AsSingle();
+            Container.BindInterfacesAndSelfTo<BallFollower>().FromInstance(_ballFollower).AsSingle();
         }
     }
 }

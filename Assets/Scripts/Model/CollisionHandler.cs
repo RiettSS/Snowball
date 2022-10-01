@@ -23,6 +23,9 @@ namespace Model
         
         public void Handle(Obstacle obstacle)
         {
+            if(obstacle.Level <= _ball.Level)
+                obstacle.Smash();
+            
             _ballScaler.Handle(obstacle);
         }
 

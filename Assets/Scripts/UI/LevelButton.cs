@@ -1,8 +1,5 @@
-using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
@@ -18,6 +15,7 @@ public class LevelButton : MonoBehaviour
     public void Construct(SceneLoader sceneLoader)
     {
         _sceneLoader = sceneLoader;
+        Debug.Log("Button Construct");
     }
 
     private void Awake()
@@ -33,7 +31,7 @@ public class LevelButton : MonoBehaviour
     
     private void Load()
     {
-        SceneManager.LoadScene(_levelToLoad.ToString());
-        //_sceneLoader.LoadScene(_levelToLoad.ToString());
+        //SceneManager.LoadScene(_levelToLoad.ToString());
+        _sceneLoader.LoadScene(_levelToLoad.ToString());
     }
 }

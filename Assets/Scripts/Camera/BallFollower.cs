@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Camera
 {
-    public class CameraMovement : MonoBehaviour, IInitializable
+    public class BallFollower : MonoBehaviour, IInitializable
     {
         [SerializeField] private float _x;
         [SerializeField] private float _y;
