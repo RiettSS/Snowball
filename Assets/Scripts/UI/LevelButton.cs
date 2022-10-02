@@ -11,11 +11,9 @@ public class LevelButton : MonoBehaviour
     private SceneLoader _sceneLoader;
     private int _levelToLoad;
 
-    [Inject]
     public void Construct(SceneLoader sceneLoader)
     {
         _sceneLoader = sceneLoader;
-        Debug.Log("Button Construct");
     }
 
     private void Awake()
@@ -31,7 +29,6 @@ public class LevelButton : MonoBehaviour
     
     private void Load()
     {
-        //SceneManager.LoadScene(_levelToLoad.ToString());
         _sceneLoader.LoadScene(_levelToLoad.ToString());
     }
 }
