@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FirebaseInit : MonoBehaviour
 {
-    private void Start()
+    private void Awake()
     {
         FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
     }
