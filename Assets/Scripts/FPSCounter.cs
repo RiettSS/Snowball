@@ -11,6 +11,7 @@ public class FPSCounter : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 100;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Update ()
