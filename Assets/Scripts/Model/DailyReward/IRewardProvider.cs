@@ -2,6 +2,6 @@
 {
     public interface IRewardProvider
     {
-        
+        IReward GetCoinsReward(int coins);
     }
 }

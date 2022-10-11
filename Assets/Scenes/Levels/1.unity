@@ -3010,6 +3010,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7488140431710869658, guid: facc445ac27608942b4c9aba844e9231,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b795a9da4895f7f43856c40978b8abbe,
+        type: 2}
+    - target: {fileID: 7488140431710869658, guid: facc445ac27608942b4c9aba844e9231,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3905036932145906227, guid: b795a9da4895f7f43856c40978b8abbe,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: facc445ac27608942b4c9aba844e9231, type: 3}
 --- !u!224 &902520120 stripped
@@ -4914,6 +4926,48 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1737978852}
     m_Modifications:
+    - target: {fileID: 483463595405243999, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 78.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 483463595405243999, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b795a9da4895f7f43856c40978b8abbe,
+        type: 2}
+    - target: {fileID: 483463595405243999, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 78.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 483463595405243999, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3905036932145906227, guid: b795a9da4895f7f43856c40978b8abbe,
+        type: 2}
+    - target: {fileID: 5076944604214570879, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076944604214570879, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076944604214570879, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076944604214570879, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6914005590625507676, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5136,6 +5190,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Smash the obstacles to grow
       objectReference: {fileID: 0}
+    - target: {fileID: 483463595405243999, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b795a9da4895f7f43856c40978b8abbe,
+        type: 2}
+    - target: {fileID: 483463595405243999, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3905036932145906227, guid: b795a9da4895f7f43856c40978b8abbe,
+        type: 2}
     - target: {fileID: 3752343500693877326, guid: 8657406b122d5f24cbd6a6e0daa24d9c,
         type: 3}
       propertyPath: _type

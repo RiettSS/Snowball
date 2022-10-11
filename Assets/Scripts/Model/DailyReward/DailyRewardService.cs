@@ -1,24 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
+using Zenject;
 
 namespace Model.DailyReward
 {
-    public class DailyReward
+    public class DailyRewardService : IInitializable
     {
-        private RewardProvider _rewardProvider;
+        private IRewardProvider _rewardProvider;
+        private List<IReward> _list;
+        private DateTime _lastRewardDay;
+        private int _rewardDay;
 
-        public DailyReward(RewardProvider rewardProvider)
+        public DailyRewardService(IRewardProvider rewardProvider)
         {
             _rewardProvider = rewardProvider;
+            _list = new List<IReward>();
+            _lastRewardDay = new DateTime(2022, 10, 10);
         }
-        
-        public bool TryGetReward()
+
+        public void Initialize()
         {
-            var reward = _rewardProvider.GetReward();
-            if (reward == null)
-                return false;
+            _list.Add(_rewardProvider.GetCoinsReward(100));
+            _list.Add(_rewardProvider.GetCoinsReward(200));
+            _list.Add(_rewardProvider.GetCoinsReward(300));
             
-            reward.Execute();
-            return true;
+            
         }
     }
 }
