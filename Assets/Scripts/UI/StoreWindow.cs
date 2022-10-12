@@ -5,7 +5,6 @@ using Zenject;
 
 public class StoreWindow : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _coinsText;
     private Wallet _wallet;
     
     [Inject]
@@ -14,20 +13,9 @@ public class StoreWindow : MonoBehaviour
         _wallet = wallet;
     }
 
-    private void OnEnable()
-    {
-        UpdateCoins();
-    }
-
-    private void UpdateCoins()
-    {
-        _coinsText.text = _wallet.Coins.ToString();
-    }
-    
     public void SpendCoins()
     {
         _wallet.ReduceCoins(10);
         _wallet.SaveCoins();
-        UpdateCoins();
     }
 }
