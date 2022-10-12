@@ -1,7 +1,6 @@
 using System;
 using Model;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -9,8 +8,10 @@ using Zenject;
 public class FinishPopUp : MonoBehaviour
 {
     [SerializeField] private TMP_Text _scoreText;
+    [SerializeField] private TMP_Text _coinsText;
     private ScoreSystem _scoreSystem;
     private Wallet _wallet;
+    private int _coinsOnLevel;
 
     [Inject]
     public void Construct(ScoreSystem scoreSystem, Wallet wallet)
@@ -26,17 +27,22 @@ public class FinishPopUp : MonoBehaviour
 
     private void AddCoinsToReward(int coins)
     {
-        
+        _coinsOnLevel += coins;
+    }
+
+    private void Awake()
+    {
+        _wallet.CoinsAmountAdded += AddCoinsToReward;
     }
 
     private void OnEnable()
     {
         _scoreText.text = _scoreSystem.Score.ToString();
-        _wallet.CoinsAmountChanged += AddCoinsToReward;
+        _coinsText.SetText(_coinsOnLevel.ToString());
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        _wallet.CoinsAmountChanged -= AddCoinsToReward;
+        _wallet.CoinsAmountAdded -= AddCoinsToReward;
     }
 }

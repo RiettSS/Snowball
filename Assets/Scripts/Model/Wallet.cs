@@ -4,7 +4,8 @@ namespace Model
 {
     public class Wallet
     {
-        public event Action<int> CoinsAmountChanged; 
+        public event Action<int> CoinsAmountChanged;
+        public event Action<int> CoinsAmountAdded;
         
         public int Coins => _coins.Value;
         private CoinsAmount _coins;
@@ -23,6 +24,7 @@ namespace Model
         {
             _coins = _coins.AddCoins(amount);
             CoinsAmountChanged?.Invoke(Coins);
+            CoinsAmountAdded?.Invoke(amount);
         }
 
         public void ReduceCoins(int amount)

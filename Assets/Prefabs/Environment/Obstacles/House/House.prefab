@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605253ca22664ae4b1e5a62eefb3dc2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scorePerObstacle: 10
+  _scorePerObstacle: 100
   _level: 3
   _3dModel: {fileID: 4039766345392995921}
   _slicedPrefab: {fileID: 1099353141042737587, guid: 5ed79dcfffb7e73469c0869599a91ed9,
