@@ -23,6 +23,7 @@ namespace Model.DailyReward
             view.GetComponent<RewardView>().SetCoinsAmount(coins);
             var presenter = new RewardPresenter(reward, view);
             view.SetDayNum(_dayCount);
+            reward.Day = _dayCount;
             _dayCount++;
             presenter.Initialize();
             return reward;
