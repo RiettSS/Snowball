@@ -13055,6 +13055,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8650437225183028111, guid: 536e84e4446b5d04181547bfad24fe87,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8cc66062249a5ac4294035bffdf5e171, type: 2}
+    - target: {fileID: 8650437225183028111, guid: 536e84e4446b5d04181547bfad24fe87,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b4096d94186d54a45a6d4aec1a8f2bf8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 536e84e4446b5d04181547bfad24fe87, type: 3}
 --- !u!1001 &1239591497
