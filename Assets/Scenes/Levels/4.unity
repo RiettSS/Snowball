@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.183535, g: 0.22762796, b: 0.29720277, a: 1}
+  m_IndirectSpecularColor: {r: 0.18353479, g: 0.22762856, b: 0.29720348, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -471,6 +471,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 217968049}
+    - target: {fileID: 4735013116839240322, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2301562d80e5de646b28d3edd90a80c8, type: 3}
 --- !u!114 &28160602 stripped
@@ -4942,7 +4947,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -10741,7 +10746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 8352713523857899908, guid: c48c9b868a81f7e49882112bafd4c521, type: 3}
   _spawnPoint: {fileID: 409107808}
-  _pointsPerLevel: 3
+  _pointsPerLevel: 5
   _maxLevel: 3
 --- !u!4 &997616506 stripped
 Transform:
@@ -14182,10 +14187,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snowroad (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1356601019509421598, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312742315438027535, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559026566583450852, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583350648919245147, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368506252173025247, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415734177375820041, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602081704125932000, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7228363674896277562, guid: 29afb2f20c2cbe548902520f44596e06,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761990163774507466, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7857220974955481205, guid: 29afb2f20c2cbe548902520f44596e06,
         type: 3}
@@ -21438,6 +21483,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snowroad
+      objectReference: {fileID: 0}
+    - target: {fileID: 1356601019509421598, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312742315438027535, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583350648919245147, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368506252173025247, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415734177375820041, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602081704125932000, guid: 29afb2f20c2cbe548902520f44596e06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7228363674896277562, guid: 29afb2f20c2cbe548902520f44596e06,
         type: 3}

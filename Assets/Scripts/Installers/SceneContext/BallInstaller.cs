@@ -1,5 +1,4 @@
 ﻿using Model;
-using Model.BallModel;
 using Presenter;
 using UnityEngine;
 using Zenject;

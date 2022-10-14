@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: beca0df7af5745a468bbd4952b437bce
+guid: 87ff1da859203d748937940dfdf10e1a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,13 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: rock1
-    second: {fileID: 2100000, guid: 7af8b91f518c7284e8765de7de9c9d6f, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: 9415737da76998f4988155d941fa0bd3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: rock2
-    second: {fileID: 2100000, guid: 8bf5d53977ec59041bc490f3d916a36f, type: 2}
+      name: "\u0433\u043B\u0430\u0437\u0430"
+    second: {fileID: 2100000, guid: 580e595677c1b1144b4b2e4e89c2b804, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043C\u043E\u0440\u043A\u043E\u0432\u044C"
+    second: {fileID: 2100000, guid: bdc3b85e35fc3fc418a179fc76b70e5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0442\u0435\u043B\u043E"
+    second: {fileID: 2100000, guid: 74ed4482d2865744eac579411acf1b67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0448\u043B\u044F\u043F\u0430"
+    second: {fileID: 2100000, guid: 390f83fc1dbe5a1478d4b635340dfe1f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

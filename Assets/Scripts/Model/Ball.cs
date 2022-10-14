@@ -1,6 +1,6 @@
 using System;
 
-namespace Model.BallModel
+namespace Model
 {
     public sealed class Ball
     {
