@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using BallSkinLoader;
 using Model.DailyReward;
 using UnityEngine;
 
@@ -64,6 +65,36 @@ namespace Model
             else
             {
                 var info = new DailyRewardInformation(DateTime.MinValue, 1, new List<int>());
+                return info;
+            }
+        }
+
+        public static void SaveSkinsInfo(PlayerSkinsInformation info)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            string path = Application.persistentDataPath + "/skins";
+            FileStream stream = new FileStream(path, FileMode.Create);
+            
+            formatter.Serialize(stream, info);
+            stream.Close();
+        }
+
+        public static PlayerSkinsInformation LoadSkinsInfo()
+        {
+            string path = Application.persistentDataPath + "/skins";
+
+            if (File.Exists(path))
+            { 
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream stream = new FileStream(path, FileMode.Open);
+
+                PlayerSkinsInformation info = (PlayerSkinsInformation)formatter.Deserialize(stream);
+                stream.Close();
+                return info;
+            }
+            else
+            {
+                var info = new PlayerSkinsInformation(new List<SkinType>());
                 return info;
             }
         }
