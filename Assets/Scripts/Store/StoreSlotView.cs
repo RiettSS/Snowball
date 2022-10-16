@@ -14,6 +14,7 @@ namespace Store
         [SerializeField] private GameObject _buyButton;
         [SerializeField] private GameObject _equipButton;
         [SerializeField] private GameObject _equippedText;
+        [SerializeField] private Transform _prefabSpawnPoint;
         
         private SkinType _skinType;
 
@@ -57,9 +58,11 @@ namespace Store
         
         private void Awake()
         {
-            var skin = SkinLoader.LoadSkin(SkinDictionary.GetSkinId(SkinType.Default));
+            var skin = SkinLoader.LoadSkin(SkinDictionary.GetSkinId(_skinType));
             _skinName.SetText(SkinNames.GetSkinName(_skinType));
-            Instantiate(skin, transform);
+            var instance = Instantiate(skin, transform);
+            instance.transform.position = _prefabSpawnPoint.transform.position;
+            
         }
     }
 }
