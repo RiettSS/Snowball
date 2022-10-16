@@ -10,8 +10,8 @@ namespace Store
         private static readonly Dictionary<SkinType, SkinPrice> _dictionary = new Dictionary<SkinType, SkinPrice>()
         {
             { SkinType.Default, Price(0,0) },
-            { SkinType.Magma, Price(1, 0) },
-            { SkinType.Spike, Price(2, 0) },
+            { SkinType.Magma, Price(250, 0) },
+            { SkinType.Spike, Price(500, 0) },
         };
 
         public static SkinPrice GetPrice(SkinType type)

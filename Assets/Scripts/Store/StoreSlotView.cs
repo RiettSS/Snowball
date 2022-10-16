@@ -47,6 +47,8 @@ namespace Store
                     _buyButton.SetActive(true);
                     _equipButton.SetActive(false);
                     _equippedText.SetActive(false);
+                    _coinsPrice.gameObject.SetActive(true);
+                    _crystalsPrice.gameObject.SetActive(true);
                     break;
                 case SlotState.Equipable:
                     _buyButton.SetActive(false);
