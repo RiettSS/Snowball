@@ -13,11 +13,11 @@ namespace Model.DailyReward
         private DailyRewardInformation _rewardInformation;
 
 
-        public DailyRewardService(IRewardProvider rewardProvider, IRewardInformatioProvider rewardInformationProvider)
+        public DailyRewardService(IRewardProvider rewardProvider, IRewardInformationProvider rewardInformationProvider)
         {
             _rewardProvider = rewardProvider;
             _rewards = new List<IReward>();
-            _rewardInformation = rewardInformationProvider.GetInfo();
+            _rewardInformation = rewardInformationProvider.GetInformation();
         }
 
         public void Initialize()

@@ -10,17 +10,17 @@ namespace Model
 {
     public static class SaveLoadSystem
     {
-        public static void SaveCoins(CoinsAmount amount)
+        public static void SaveCoins(Currency currency)
         {
             BinaryFormatter formatter = new BinaryFormatter();
             string path = Application.persistentDataPath + "/coins";
             FileStream stream = new FileStream(path, FileMode.Create);
             
-            formatter.Serialize(stream, amount);
+            formatter.Serialize(stream, currency);
             stream.Close();
         }
 
-        public static CoinsAmount LoadCoins()
+        public static Currency LoadCoins()
         {
             string path = Application.persistentDataPath + "/coins";
 
@@ -29,13 +29,14 @@ namespace Model
                 BinaryFormatter formatter = new BinaryFormatter();
                 FileStream stream = new FileStream(path, FileMode.Open);
 
-                CoinsAmount amount = (CoinsAmount)formatter.Deserialize(stream);
+                Currency currency = (Currency)formatter.Deserialize(stream);
                 stream.Close();
-                return amount;
+                return currency;
             }
             else
             {
-                return new CoinsAmount(100);
+                SaveCoins(new Currency(100));
+                return new Currency(100);
             }
         }
 
@@ -69,7 +70,7 @@ namespace Model
             }
         }
 
-        public static void SaveSkinsInfo(PlayerSkinsInformation info)
+        public static void SaveSkinsInfo(SkinsInformation info)
         {
             BinaryFormatter formatter = new BinaryFormatter();
             string path = Application.persistentDataPath + "/skins";
@@ -79,7 +80,7 @@ namespace Model
             stream.Close();
         }
 
-        public static PlayerSkinsInformation LoadSkinsInfo()
+        public static SkinsInformation LoadSkinsInfo()
         {
             string path = Application.persistentDataPath + "/skins";
 
@@ -88,13 +89,14 @@ namespace Model
                 BinaryFormatter formatter = new BinaryFormatter();
                 FileStream stream = new FileStream(path, FileMode.Open);
 
-                PlayerSkinsInformation info = (PlayerSkinsInformation)formatter.Deserialize(stream);
+                SkinsInformation info = (SkinsInformation)formatter.Deserialize(stream);
                 stream.Close();
                 return info;
             }
             else
             {
-                var info = new PlayerSkinsInformation(new List<SkinType>());
+                var info = new SkinsInformation(new List<SkinType>() { SkinType.Default }, SkinType.Default);
+                SaveSkinsInfo(info);
                 return info;
             }
         }

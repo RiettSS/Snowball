@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace Model.DailyReward.InformationProvider
 {
-    public class InformationProvider : IRewardInformatioProvider
+    public class RewardInformationProvider : IRewardInformationProvider
     {
         private DailyRewardInformation _rewardInformation;
         
-        public InformationProvider()
+        public RewardInformationProvider()
         {
             _rewardInformation = SaveLoadSystem.LoadRewardInfo();
         }
 
-        public DailyRewardInformation GetInfo()
+        public DailyRewardInformation GetInformation()
         {
             return CalculateRewardInfo();
         }
@@ -30,21 +30,6 @@ namespace Model.DailyReward.InformationProvider
             {
                 return new DailyRewardInformation(DateTime.Today, 1, new List<int>());
             }
-        }
-        
-        private int CurrentDay()
-        {
-            return _rewardInformation.Day;
-        }
-
-        private DateTime LastRewardDay()
-        {
-            return _rewardInformation.LastRewardDay;
-        }
-
-        private List<int> CollectedDays()
-        {
-            return _rewardInformation.CollectedDays;
         }
     }
 }

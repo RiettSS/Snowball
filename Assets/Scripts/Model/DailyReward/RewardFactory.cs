@@ -18,7 +18,7 @@ namespace Model.DailyReward
         
         public IReward CreateCoinReward(int coins)
         {
-            var reward = new CoinsReward(new CoinsAmount(coins), _wallet);
+            var reward = new CoinsReward(new Currency(coins), _wallet);
             var view = _viewFactory.GetCoinsRewardView();
             view.GetComponent<RewardView>().SetCoinsAmount(coins);
             var presenter = new RewardPresenter(reward, view);

@@ -4,11 +4,16 @@ namespace BallSkinLoader
 {
     public static class SkinDictionary
     {
-        public static readonly Dictionary<SkinType, string> Dictionary = new Dictionary<SkinType, string>()
+        private static readonly Dictionary<SkinType, string> _dictionary = new Dictionary<SkinType, string>()
         {
             { SkinType.Default, "DefaultSkin" },
             { SkinType.Magma, "MagmaSkin" },
             { SkinType.Spike, "SpikeSkin" },
         };
+
+        public static string GetSkinId(SkinType type)
+        {
+            return _dictionary[type];
+        }
     }
 }

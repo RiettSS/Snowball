@@ -13,18 +13,18 @@ namespace Model.DailyReward
 
         public int Day { get; set; }
 
-        private readonly CoinsAmount _coinsAmount;
+        private readonly Currency _currency;
         private readonly Wallet _wallet;
 
-        public CoinsReward(CoinsAmount coinsAmount, Wallet wallet)
+        public CoinsReward(Currency currency, Wallet wallet)
         {
-            _coinsAmount = coinsAmount;
+            _currency = currency;
             _wallet = wallet;
         }
         
         public void Apply()
         {
-            _wallet.AddCoins(_coinsAmount.Value);
+            _wallet.AddCoins(_currency.Value);
             _wallet.SaveCoins();
             Applied?.Invoke();
             AppliedOnDay?.Invoke(Day);
