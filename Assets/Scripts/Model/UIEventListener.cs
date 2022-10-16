@@ -1,5 +1,4 @@
 ﻿using System;
-using Model.BallModel;
 using UI.Popup;
 using UnityEngine;
 using Zenject;

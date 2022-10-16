@@ -3,25 +3,25 @@
 namespace Model
 {
     [Serializable]
-    public struct CoinsAmount
+    public struct Currency
     {
         public readonly int Value;
 
         private const int MinCoins = 0;
 
-        public CoinsAmount(int coinsAmount)
+        public Currency(int coinsAmount)
         {
             Value = Math.Clamp(coinsAmount, MinCoins, int.MaxValue);
         }
 
-        public CoinsAmount AddCoins(int coins)
+        public Currency AddCoins(int coins)
         {
-            return new CoinsAmount(Value + coins);
+            return new Currency(Value + coins);
         }
 
-        public CoinsAmount ReduceCoins(int coins)
+        public Currency ReduceCoins(int coins)
         {
-            return new CoinsAmount(Value - coins);
+            return new Currency(Value - coins);
         }
     }
 }

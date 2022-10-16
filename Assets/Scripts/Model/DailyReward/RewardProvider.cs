@@ -7,6 +7,7 @@ namespace Model.DailyReward
     {
         private IRewardFactory _factory;
         private List<IReward> _rewards;
+        
         public RewardProvider(IRewardFactory factory)
         {
             _factory = factory;

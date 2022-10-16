@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.183535, g: 0.22762796, b: 0.29720277, a: 1}
+  m_IndirectSpecularColor: {r: 0.18353479, g: 0.22762856, b: 0.29720348, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3915,7 +3915,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -9381,7 +9381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 8352713523857899908, guid: c48c9b868a81f7e49882112bafd4c521, type: 3}
   _spawnPoint: {fileID: 409107808}
-  _pointsPerLevel: 3
+  _pointsPerLevel: 5
   _maxLevel: 3
 --- !u!1001 &1006773103
 PrefabInstance:
@@ -17054,6 +17054,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 217968049}
+    - target: {fileID: 4735013116839240322, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2301562d80e5de646b28d3edd90a80c8, type: 3}
 --- !u!114 &1800598703 stripped

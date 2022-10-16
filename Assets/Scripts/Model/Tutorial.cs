@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Model.BallModel;
 using UI.Popup;
 using UnityEngine;
 using Zenject;

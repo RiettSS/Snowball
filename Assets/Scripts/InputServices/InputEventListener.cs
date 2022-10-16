@@ -1,6 +1,5 @@
 ﻿using System;
 using Model;
-using Model.BallModel;
 using Zenject;
 
 namespace InputServices
