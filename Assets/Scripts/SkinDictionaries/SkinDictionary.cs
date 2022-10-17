@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using BallSkinLoader;
 
-namespace BallSkinLoader
+namespace SkinDictionaries
 {
     public static class SkinDictionary
     {
@@ -9,6 +10,7 @@ namespace BallSkinLoader
             { SkinType.Default, "DefaultSkin" },
             { SkinType.Magma, "MagmaSkin" },
             { SkinType.Spike, "SpikeSkin" },
+            { SkinType.Thread, "ThreadSkin" },
         };
 
         public static string GetSkinId(SkinType type)

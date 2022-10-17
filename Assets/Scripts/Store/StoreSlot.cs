@@ -1,5 +1,6 @@
 ﻿using System;
 using BallSkinLoader;
+using SkinDictionaries;
 using UnityEngine;
 
 namespace Store
@@ -40,8 +41,6 @@ namespace Store
 
         private void CalculateState(SkinType type)
         {
-            Debug.Log("hello");
-            
             if(type == SkinType)
                 StateChanged?.Invoke(SlotState.Equipped);
 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7243383867105319433}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: MagmaSkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,8 +117,14 @@ PrefabInstance:
     - target: {fileID: 7994492233162306952, guid: 3cd397dcf60316842bdb103535afc168,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8499093097608483933, guid: 3cd397dcf60316842bdb103535afc168,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6478536213147159724, guid: d38b509f89259f147aa67c5b1b45da88,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd397dcf60316842bdb103535afc168, type: 3}
 --- !u!4 &4968920154892307732 stripped

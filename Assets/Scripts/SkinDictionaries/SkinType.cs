@@ -5,5 +5,6 @@
         Default,
         Magma,
         Spike,
+        Thread,
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using BallSkinLoader;
+using SkinDictionaries;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Store
 {
@@ -13,9 +15,9 @@ namespace Store
         [SerializeField] private TMP_Text _skinName;
         [SerializeField] private TMP_Text _coinsPrice;
         [SerializeField] private TMP_Text _crystalsPrice;
-        [SerializeField] private GameObject _buyButton;
-        [SerializeField] private GameObject _equipButton;
-        [SerializeField] private GameObject _equippedText;
+        [SerializeField] private Transform _buyButton;
+        [SerializeField] private Transform _equipButton;
+        [SerializeField] private TMP_Text _equippedText;
         [SerializeField] private Transform _prefabSpawnPoint;
 
         private SkinType _skinType;
@@ -44,23 +46,23 @@ namespace Store
             switch (state)
             {
                 case SlotState.Buyable:
-                    _buyButton.SetActive(true);
-                    _equipButton.SetActive(false);
-                    _equippedText.SetActive(false);
+                    _buyButton.gameObject.SetActive(true);
+                    _equipButton.gameObject.SetActive(false);
+                    _equippedText.gameObject.SetActive(false);
                     _coinsPrice.gameObject.SetActive(true);
                     _crystalsPrice.gameObject.SetActive(true);
                     break;
                 case SlotState.Equipable:
-                    _buyButton.SetActive(false);
-                    _equipButton.SetActive(true);
-                    _equippedText.SetActive(false);
+                    _buyButton.gameObject.SetActive(false);
+                    _equipButton.gameObject.SetActive(true);
+                    _equippedText.gameObject.SetActive(false);
                     _coinsPrice.gameObject.SetActive(false);
                     _crystalsPrice.gameObject.SetActive(false);
                     break;
                 case SlotState.Equipped:
-                    _buyButton.SetActive(false);
-                    _equipButton.SetActive(false);
-                    _equippedText.SetActive(true);
+                    _buyButton.gameObject.SetActive(false);
+                    _equipButton.gameObject.SetActive(false);
+                    _equippedText.gameObject.SetActive(true);
                     _coinsPrice.gameObject.SetActive(false);
                     _crystalsPrice.gameObject.SetActive(false);
                     break;

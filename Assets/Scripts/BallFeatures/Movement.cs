@@ -46,8 +46,10 @@ namespace BallFeatures
         public void StopMovement()
         {
             _isMovingAllowed = false;
+            //_rigidbody.velocity = new Vector3(0,0,0);
+            //_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }
-        
+
         private void MoveForward()
         {
             if(_rigidbody.velocity.z < _maxSpeed)

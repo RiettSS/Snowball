@@ -1,5 +1,6 @@
 ﻿using System;
 using Model;
+using SkinDictionaries;
 using Store;
 using UnityEngine;
 
@@ -24,12 +25,10 @@ namespace BallSkinLoader
         {
             if (_skinsInformation.Skins.Contains(type))
             {
-                Debug.Log("bought");
                 return true;
             }
             else
             {
-                Debug.Log("not bought");
                 return false;
             }
         }
@@ -50,7 +49,6 @@ namespace BallSkinLoader
 
         public void Equip(SkinType type)
         {
-            Debug.Log("skinStorage.Equip()");
             _skinsInformation.SetSkin(type);
             EquippedSkinChanged?.Invoke(type);
             SaveLoadSystem.SaveSkinsInfo(_skinsInformation);
