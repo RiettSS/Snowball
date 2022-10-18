@@ -20,7 +20,11 @@ namespace Store
         [SerializeField] private TMP_Text _equippedText;
         [SerializeField] private Transform _prefabSpawnPoint;
 
+        private GameObject _unlockedModel;
+        private GameObject _lockedModel;
+        
         private SkinType _skinType;
+        private bool _locked;
 
         public void Construct(SkinType skinType)
         {
@@ -28,6 +32,11 @@ namespace Store
             var price = SkinPrices.GetPrice(skinType);
             _coinsPrice.SetText(price.Coins.ToString());
             _crystalsPrice.SetText(price.Crystals.ToString());
+            
+            var skin = SkinLoader.LoadSkin(SkinDictionary.GetSkinId(_skinType));
+            _unlockedModel = Instantiate(skin, transform);
+            _lockedModel = Instantiate(skin, transform);
+            
             ChangeState(SlotState.Buyable);
         }
 
@@ -39,6 +48,11 @@ namespace Store
         public void Equip()
         {
             EquipButtonPressed?.Invoke();
+        }
+
+        public void SetLockState(bool state)
+        {
+            _locked = state;
         }
 
         public void ChangeState(SlotState state)
@@ -54,6 +68,7 @@ namespace Store
                     _equippedText.gameObject.SetActive(false);
                     _coinsPrice.gameObject.SetActive(true);
                     _crystalsPrice.gameObject.SetActive(true);
+                    Lock();
                     break;
                 case SlotState.Equipable:
                     _buyButton.gameObject.SetActive(false);
@@ -61,6 +76,7 @@ namespace Store
                     _equippedText.gameObject.SetActive(false);
                     _coinsPrice.gameObject.SetActive(false);
                     _crystalsPrice.gameObject.SetActive(false);
+                    Unlock();
                     break;
                 case SlotState.Equipped:
                     _buyButton.gameObject.SetActive(false);
@@ -68,16 +84,46 @@ namespace Store
                     _equippedText.gameObject.SetActive(true);
                     _coinsPrice.gameObject.SetActive(false);
                     _crystalsPrice.gameObject.SetActive(false);
+                    Unlock();
                     break;
             }
         }
         
         private void Awake()
         {
-            var skin = SkinLoader.LoadSkin(SkinDictionary.GetSkinId(_skinType));
             _skinName.SetText(SkinNames.GetSkinName(_skinType));
-            var instance = Instantiate(skin, transform);
-            instance.transform.position = _prefabSpawnPoint.transform.position;
+            
+            ChangeMaterial(_lockedModel);
+            _unlockedModel.transform.position = _prefabSpawnPoint.transform.position;
+            _lockedModel.transform.position = _prefabSpawnPoint.transform.position;
+            
+            if(_locked)
+                Lock();
+            else
+                Unlock();
+        }
+
+        private void ChangeMaterial(GameObject lockedModel)
+        {
+            var lockedShader = Resources.Load<Shader>("Materials/Black");
+            var materials = lockedModel.GetComponentInChildren<MeshRenderer>().materials;
+            
+            for (int i = 0; i < materials.Length; i++)
+            {
+                materials[i].shader = lockedShader;
+            }
+        }
+
+        private void Lock()
+        {
+            _unlockedModel.SetActive(false);
+            _lockedModel.SetActive(true);
+        }
+
+        private void Unlock()
+        {
+            _unlockedModel.SetActive(true);
+            _lockedModel.SetActive(false);
         }
     }
 }

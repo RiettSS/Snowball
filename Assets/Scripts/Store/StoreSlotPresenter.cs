@@ -20,6 +20,8 @@ namespace Store
             _view.BuyButtonPressed += _storeSlot.OnBuyPressed;
             _view.EquipButtonPressed += _storeSlot.OnEquipPressed;
             _storeSlot.StateChanged += _view.ChangeState;
+            
+            _view.SetLockState(_storeSlot.LockState);
         }
 
         public void Dispose()

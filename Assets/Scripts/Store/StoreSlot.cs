@@ -10,6 +10,7 @@ namespace Store
         public event Action<SlotState> StateChanged;
         public readonly SkinType SkinType;
         public readonly SkinPrice Price;
+        public bool LockState { get; private set; }
 
         private readonly SkinStorage _storage;
 
@@ -18,8 +19,9 @@ namespace Store
             SkinType = skinType;
             Price = SkinPrices.GetPrice(skinType);
             _storage = storage;
-
             _storage.EquippedSkinChanged += CalculateState;
+            
+            TryLock();
         }
 
         public void OnBuyPressed()
@@ -59,6 +61,14 @@ namespace Store
                 return false;
 
             return _storage.TryBuy(SkinType);
+        }
+
+        private void TryLock()
+        {
+            if (_storage.IsBought(SkinType))
+                LockState = false;
+            else
+                LockState = true;
         }
     }
 }
