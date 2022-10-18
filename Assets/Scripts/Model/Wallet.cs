@@ -53,7 +53,6 @@ namespace Model
 
         public void SaveCoins()
         {
-            Debug.Log("coins saved");
             SaveLoadSystem.SaveCoins(_coins);
         }
     }

@@ -1,6 +1,7 @@
 using System;
 using Model;
 using TMPro;
+using UI;
 using UnityEngine;
 using Zenject;
 
