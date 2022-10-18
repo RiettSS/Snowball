@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Store
 {
-    public class StoreSlotViewFactory : MonoBehaviour   
+    public class StoreSlotViewFactory : MonoBehaviour
     {
         [SerializeField] private StoreSlotView _prefab;
         [SerializeField] private Transform _contentTransform;

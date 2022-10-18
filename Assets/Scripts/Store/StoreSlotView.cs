@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using BallSkinLoader;
 using SkinDictionaries;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Store
 {
@@ -25,10 +25,10 @@ namespace Store
         public void Construct(SkinType skinType)
         {
             _skinType = skinType;
-            ChangeState(SlotState.Buyable);
             var price = SkinPrices.GetPrice(skinType);
             _coinsPrice.SetText(price.Coins.ToString());
             _crystalsPrice.SetText(price.Crystals.ToString());
+            ChangeState(SlotState.Buyable);
         }
 
         public void Buy()
@@ -43,6 +43,9 @@ namespace Store
 
         public void ChangeState(SlotState state)
         {
+            if (_buyButton == null)
+                return;
+            
             switch (state)
             {
                 case SlotState.Buyable:
