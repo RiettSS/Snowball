@@ -6,6 +6,6 @@ namespace Model.DailyReward
     {
         List<IReward> GetRewards();
 
-        IReward GetCoinsReward(int coins);
+        IReward CoinsReward(int coins);
     }
 }

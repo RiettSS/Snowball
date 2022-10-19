@@ -19,15 +19,15 @@ namespace Model.DailyReward
 
         public List<IReward> GetRewards()
         {
-            _rewards.Add(GetCoinsReward(100));
-            _rewards.Add(GetCoinsReward(200));
-            _rewards.Add(GetCoinsReward(300));
-            _rewards.Add(GetCoinsReward(400));
-            _rewards.Add(GetCoinsReward(500));
-            _rewards.Add(GetCoinsReward(600));
-            _rewards.Add(GetCoinsReward(700));
-            _rewards.Add(GetCoinsReward(800));
-            _rewards.Add(GetCoinsReward(900));
+            _rewards.Add(CoinsReward(100));
+            _rewards.Add(CrystalsReward(5));
+            _rewards.Add(CoinsReward(300));
+            _rewards.Add(CrystalsReward(10));
+            _rewards.Add(CoinsReward(500));
+            _rewards.Add(CrystalsReward(15));
+            _rewards.Add(CoinsReward(700));
+            _rewards.Add(CrystalsReward(20));
+            _rewards.Add(CoinsReward(900));
 
             InitializeRewards();
 
@@ -35,9 +35,15 @@ namespace Model.DailyReward
         }
         
 
-        public IReward GetCoinsReward(int coins)
+        public IReward CoinsReward(int coins)
         {
             var reward = _factory.CreateCoinReward(coins);
+            return reward;
+        }
+
+        public IReward CrystalsReward(int crystals)
+        {
+            var reward = _factory.CreateCrystalReward(crystals);
             return reward;
         }
 

@@ -39,6 +39,36 @@ namespace Model
                 return new Currency(100);
             }
         }
+        
+        public static void SaveCrystals(Currency currency)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            string path = Application.persistentDataPath + "/crystals";
+            FileStream stream = new FileStream(path, FileMode.Create);
+            
+            formatter.Serialize(stream, currency);
+            stream.Close();
+        }
+
+        public static Currency LoadCrystals()
+        {
+            string path = Application.persistentDataPath + "/crystals";
+
+            if (File.Exists(path))
+            { 
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream stream = new FileStream(path, FileMode.Open);
+
+                Currency currency = (Currency)formatter.Deserialize(stream);
+                stream.Close();
+                return currency;
+            }
+            else
+            {
+                SaveCoins(new Currency(10));
+                return new Currency(10);
+            }
+        }
 
         public static void SaveRewardInfo(DailyRewardInformation date)
         {

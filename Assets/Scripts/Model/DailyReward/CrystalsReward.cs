@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Diagnostics.Tracing;
 
 namespace Model.DailyReward
 {
-    public class CoinsReward : IReward
+    public class CrystalsReward : IReward
     {
         public event Action Activated;
         public event Action Deactivated;
@@ -16,7 +15,7 @@ namespace Model.DailyReward
         private readonly Currency _currency;
         private readonly Wallet _wallet;
 
-        public CoinsReward(Currency currency, Wallet wallet)
+        public CrystalsReward(Currency currency, Wallet wallet)
         {
             _currency = currency;
             _wallet = wallet;
@@ -24,7 +23,7 @@ namespace Model.DailyReward
         
         public void Apply()
         {
-            _wallet.AddCoins(_currency.Value);
+            _wallet.AddCrystals(_currency.Value);
             _wallet.SaveCurrencies();
             Applied?.Invoke();
             AppliedOnDay?.Invoke(Day);

@@ -3439,6 +3439,8 @@ MonoBehaviour:
   _contentView: {fileID: 197477366}
   _coinsPrefab: {fileID: 7670826447459227853, guid: 0a344eb7f40218c4f80004064acfe6d8,
     type: 3}
+  _crystalsPrefab: {fileID: 3339748801595574161, guid: 50b875e59704b8440bc85bf857d2d400,
+    type: 3}
 --- !u!4 &1062694977
 Transform:
   m_ObjectHideFlags: 0

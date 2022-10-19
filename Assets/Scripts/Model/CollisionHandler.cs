@@ -46,7 +46,7 @@ namespace Model
         public void Handle(Finish finish)
         {
             _wallet.AddCoins(_levelWallet.Coins);
-            _wallet.SaveCoins();
+            _wallet.SaveCurrencies();
             _levelWallet = new Wallet(0);
             _ball.StopMovement();
             OnFinished?.Invoke();

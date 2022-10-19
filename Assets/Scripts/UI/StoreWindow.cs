@@ -16,6 +16,6 @@ public class StoreWindow : MonoBehaviour
     public void SpendCoins()
     {
         _wallet.ReduceCoins(10);
-        _wallet.SaveCoins();
+        _wallet.SaveCurrencies();
     }
 }

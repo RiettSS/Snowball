@@ -18,11 +18,13 @@ namespace Model
         public Wallet()
         {
             _coins = SaveLoadSystem.LoadCoins();
+            _crystals = SaveLoadSystem.LoadCrystals();
         }
 
         public Wallet(int coins)
         {
             _coins = new Currency(coins);
+            _crystals = new Currency(10);
         }
 
         public void AddCoins(int amount)
@@ -41,19 +43,20 @@ namespace Model
         public void AddCrystals(int amount)
         {
             _crystals = _crystals.AddCoins(amount);
-            CrystalsAmountChanged?.Invoke(Coins);
+            CrystalsAmountChanged?.Invoke(Crystals);
             CrystalsAmountAdded?.Invoke(amount);
         }
 
         public void ReduceCrystals(int amount)
         {
             _crystals = _crystals.ReduceCoins(amount);
-            CrystalsAmountChanged?.Invoke(Coins);
+            CrystalsAmountChanged?.Invoke(Crystals);
         }
 
-        public void SaveCoins()
+        public void SaveCurrencies()
         {
             SaveLoadSystem.SaveCoins(_coins);
+            SaveLoadSystem.SaveCrystals(_crystals);
         }
     }
 }

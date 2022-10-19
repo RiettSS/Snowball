@@ -41,7 +41,7 @@ namespace BallSkinLoader
 
             _wallet.ReduceCoins(skinPrice.Coins);
             _wallet.ReduceCrystals(skinPrice.Crystals);
-            _wallet.SaveCoins();
+            _wallet.SaveCurrencies();
             _skinsInformation.AddSkin(type);
             SaveLoadSystem.SaveSkinsInfo(_skinsInformation);
             return true;

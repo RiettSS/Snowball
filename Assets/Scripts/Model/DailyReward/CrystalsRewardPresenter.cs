@@ -1,40 +1,34 @@
 ﻿using System;
-using UI;
-using UnityEngine;
-using View.DailyReward;
 using Zenject;
 
 namespace Model.DailyReward
 {
-    public class RewardPresenter : IInitializable, IDisposable
+    public class CrystalsRewardPresenter : IInitializable, IDisposable
     {
         private IReward _reward;
-        private RewardView _view;
+        private CrystalsRewardView _view;
 
-        public RewardPresenter(IReward reward, RewardView view)
+        public CrystalsRewardPresenter(IReward reward, CrystalsRewardView view)
         {
             _reward = reward;
             _view = view;
         }
-        
+
         public void Initialize()
         {
             _view.OpenButtonClicked += _reward.Apply;
             _reward.Today += _view.SetTodayBackground;
             _reward.Activated += _view.Activate;
             _reward.Deactivated += _view.Deactivate;
-            //_reward.DayChaged += _view.SetDayNum;
             _reward.Applied += _view.Deactivate;
         }
 
         public void Dispose()
         {
-            Debug.Log("Disposed");
             _view.OpenButtonClicked -= _reward.Apply;
             _reward.Today -= _view.SetTodayBackground;
             _reward.Activated -= _view.Activate;
             _reward.Deactivated -= _view.Deactivate;
-            //_reward.DayChaged -= _view.SetDayNum;
             _reward.Applied -= _view.Deactivate;
         }
     }
