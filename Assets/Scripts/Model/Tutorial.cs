@@ -11,7 +11,7 @@ namespace Model
         private PopUpShower _popUpShower;
         private Ball _ball;
         private PopUp _popUp;
-        private List<PopUpType> _popUpTypes = new List<PopUpType>() {PopUpType.TutorialWelcome, PopUpType.TutorialControl};
+        private List<PopUpType> _popUpTypes = new List<PopUpType>() {PopUpType.TutorialWelcome, PopUpType.TutorialControlLeft, PopUpType.TutorialControlRight};
 
         private int _popUpNum;
         private bool _growPopUpShown;

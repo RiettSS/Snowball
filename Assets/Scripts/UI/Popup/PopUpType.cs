@@ -2,7 +2,8 @@
 {
     public enum PopUpType{
         TutorialWelcome,
-        TutorialControl,
+        TutorialControlLeft,
+        TutorialControlRight,
         TutorialGrow,
         Finish,
         Lose,

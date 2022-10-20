@@ -2805,6 +2805,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5899679459018125350, guid: f713f625379e04e42a7ca945bea26fdf,
+        type: 3}
+      propertyPath: _type
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6989323959524956586, guid: f713f625379e04e42a7ca945bea26fdf,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7064,6 +7069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598113035097676709, guid: aef737e90b2e8e14a8a5592d0824d41c,
+        type: 3}
+      propertyPath: _type
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2814025736267379241, guid: aef737e90b2e8e14a8a5592d0824d41c,
         type: 3}
