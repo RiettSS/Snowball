@@ -7,17 +7,17 @@ namespace Model.DailyReward
     public class RewardProvider : IRewardProvider, IDisposable
     {
         private IRewardFactory _factory;
-        private List<IReward> _rewards;
+        private List<Reward> _rewards;
         private DailyRewardInformation _rewardInformation;
         
         public RewardProvider(IRewardFactory factory, IRewardInformationProvider rewardInformationProvider)
         {
             _factory = factory;
-            _rewards = new List<IReward>();
+            _rewards = new List<Reward>();
             _rewardInformation = rewardInformationProvider.GetInformation();
         }
 
-        public List<IReward> GetRewards()
+        public List<Reward> GetRewards()
         {
             _rewards.Add(CoinsReward(100));
             _rewards.Add(CrystalsReward(5));
@@ -35,13 +35,13 @@ namespace Model.DailyReward
         }
         
 
-        public IReward CoinsReward(int coins)
+        public Reward CoinsReward(int coins)
         {
             var reward = _factory.CreateCoinReward(coins);
             return reward;
         }
 
-        public IReward CrystalsReward(int crystals)
+        public Reward CrystalsReward(int crystals)
         {
             var reward = _factory.CreateCrystalReward(crystals);
             return reward;

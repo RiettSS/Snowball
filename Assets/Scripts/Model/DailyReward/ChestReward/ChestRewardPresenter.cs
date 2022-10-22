@@ -3,17 +3,17 @@ using Zenject;
 
 namespace Model.DailyReward
 {
-    public class CrystalsRewardPresenter : IInitializable, IDisposable
+    public class ChestRewardPresenter : IInitializable, IDisposable
     {
         private Reward _reward;
-        private CrystalsRewardView _view;
+        private ChestRewardView _view;
 
-        public CrystalsRewardPresenter(Reward reward, CrystalsRewardView view)
+        public ChestRewardPresenter(Reward reward, ChestRewardView view)
         {
             _reward = reward;
             _view = view;
         }
-
+        
         public void Initialize()
         {
             _view.OpenButtonClicked += _reward.Apply;

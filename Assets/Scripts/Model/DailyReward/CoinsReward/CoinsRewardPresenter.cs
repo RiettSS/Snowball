@@ -1,16 +1,14 @@
 ﻿using System;
-using UI;
-using UnityEngine;
 using Zenject;
 
 namespace Model.DailyReward
 {
     public class CoinsRewardPresenter : IInitializable, IDisposable
     {
-        private IReward _reward;
+        private Reward _reward;
         private CoinsRewardView _view;
 
-        public CoinsRewardPresenter(IReward reward, CoinsRewardView view)
+        public CoinsRewardPresenter(Reward reward, CoinsRewardView view)
         {
             _reward = reward;
             _view = view;

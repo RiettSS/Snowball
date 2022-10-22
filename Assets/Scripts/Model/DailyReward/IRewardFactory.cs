@@ -2,9 +2,9 @@
 {
     public interface IRewardFactory
     {
-        IReward CreateCoinReward(int coins);
-        IReward CreateCrystalReward(int crystals);
+        Reward CreateCoinReward(int coins);
+        Reward CreateCrystalReward(int crystals);
 
-        IReward CreateChestReward();
+        Reward CreateChestReward();
     }
 }

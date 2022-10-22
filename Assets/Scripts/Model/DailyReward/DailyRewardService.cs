@@ -6,7 +6,7 @@ namespace Model.DailyReward
     public class DailyRewardService : IInitializable
     {
         private IRewardProvider _rewardProvider;
-        private List<IReward> _rewards;
+        private List<Reward> _rewards;
 
         private DailyRewardInformation _rewardInformation;
 
@@ -14,7 +14,7 @@ namespace Model.DailyReward
         public DailyRewardService(IRewardProvider rewardProvider)
         {
             _rewardProvider = rewardProvider;
-            _rewards = new List<IReward>();
+            _rewards = new List<Reward>();
         }
 
         public void Initialize()

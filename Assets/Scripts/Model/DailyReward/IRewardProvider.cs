@@ -4,8 +4,8 @@ namespace Model.DailyReward
 {
     public interface IRewardProvider
     {
-        List<IReward> GetRewards();
+        List<Reward> GetRewards();
 
-        IReward CoinsReward(int coins);
+        Reward CoinsReward(int coins);
     }
 }

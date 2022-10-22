@@ -15,9 +15,9 @@ namespace Model.DailyReward
             _dayCount = 1;
         }
         
-        public IReward CreateCoinReward(int coins)
+        public Reward CreateCoinReward(int coins)
         {
-            var reward = new CoinsReward(new Currency(coins), _wallet);
+            var reward = new CoinsReward.CoinsReward(new Currency(coins), _wallet);
             var view = _viewFactory.GetCoinsRewardView();
             view.GetComponent<CoinsRewardView>().SetCoinsAmount(coins);
             var presenter = new CoinsRewardPresenter(reward, view);
@@ -28,7 +28,7 @@ namespace Model.DailyReward
             return reward;
         }
 
-        public IReward CreateCrystalReward(int crystals)
+        public Reward CreateCrystalReward(int crystals)
         {
             var reward = new CrystalsReward(new Currency(crystals), _wallet);
             var view = _viewFactory.GetCrystalsRewardView();
@@ -41,7 +41,7 @@ namespace Model.DailyReward
             return reward;
         }
 
-        public IReward CreateChestReward()
+        public Reward CreateChestReward()
         {
             throw new System.NotImplementedException();
         }

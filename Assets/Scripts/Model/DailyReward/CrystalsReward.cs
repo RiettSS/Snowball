@@ -2,16 +2,8 @@
 
 namespace Model.DailyReward
 {
-    public class CrystalsReward : IReward
+    public class CrystalsReward : Reward
     {
-        public event Action Activated;
-        public event Action Deactivated;
-        public event Action Today;
-        public event Action Applied;
-        public event Action<int> AppliedOnDay;
-
-        public int Day { get; set; }
-
         private readonly Currency _currency;
         private readonly Wallet _wallet;
 
@@ -21,27 +13,11 @@ namespace Model.DailyReward
             _wallet = wallet;
         }
         
-        public void Apply()
+        public override void Apply()
         {
             _wallet.AddCrystals(_currency.Value);
             _wallet.SaveCurrencies();
-            Applied?.Invoke();
-            AppliedOnDay?.Invoke(Day);
-        }
-
-        public void SetActive()
-        {
-            Activated?.Invoke();
-        }
-
-        public void SetInactive()
-        {
-            Deactivated?.Invoke();
-        }
-
-        public void SetTodayBackground()
-        {
-            Today?.Invoke();
+            base.Apply();
         }
     }
 }
