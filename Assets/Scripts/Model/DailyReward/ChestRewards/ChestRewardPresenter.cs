@@ -1,7 +1,7 @@
 ﻿using System;
 using Zenject;
 
-namespace Model.DailyReward
+namespace Model.DailyReward.ChestRewards
 {
     public class ChestRewardPresenter : IInitializable, IDisposable
     {

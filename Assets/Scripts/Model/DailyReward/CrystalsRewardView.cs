@@ -29,12 +29,7 @@ namespace Model.DailyReward
         {
             GetComponent<Image>().sprite = _todayBackground;
         }
-
-        private void SetDefaultBackground()
-        {
-            GetComponent<Image>().sprite = _background;
-        }
-
+        
         public void Activate()
         {
             _openButton.SetActive(true);
@@ -48,6 +43,11 @@ namespace Model.DailyReward
         public void OnClick()
         {
             OpenButtonClicked?.Invoke();
+        }
+        
+        private void SetDefaultBackground()
+        {
+            GetComponent<Image>().sprite = _background;
         }
     }
 }

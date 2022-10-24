@@ -19,6 +19,7 @@ namespace Model.DailyReward
 
         public List<Reward> GetRewards()
         {
+            _rewards.Add(ChestReward());
             _rewards.Add(CoinsReward(100));
             _rewards.Add(CrystalsReward(5));
             _rewards.Add(CoinsReward(300));
@@ -35,16 +36,19 @@ namespace Model.DailyReward
         }
         
 
-        public Reward CoinsReward(int coins)
+        private Reward CoinsReward(int coins)
         {
-            var reward = _factory.CreateCoinReward(coins);
-            return reward;
+            return _factory.CreateCoinReward(coins);
         }
 
-        public Reward CrystalsReward(int crystals)
+        private Reward CrystalsReward(int crystals)
         {
-            var reward = _factory.CreateCrystalReward(crystals);
-            return reward;
+            return _factory.CreateCrystalReward(crystals);
+        }
+
+        private Reward ChestReward()
+        {
+            return _factory.CreateChestReward();
         }
 
         private void InitializeRewards()

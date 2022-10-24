@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Model.DailyReward
+namespace Model.DailyReward.ChestRewards
 {
     public class ChestRewardView : MonoBehaviour
     {
@@ -11,14 +11,8 @@ namespace Model.DailyReward
 
         [SerializeField] private Sprite _background;
         [SerializeField] private Sprite _todayBackground;
-        [SerializeField] private TMP_Text _coins;
         [SerializeField] private TMP_Text _dayNum;
         [SerializeField] private GameObject _openButton;
-
-        public void SetCoinsAmount(int coins)
-        {
-            _coins.SetText("x" + coins.ToString());
-        }
 
         public void SetDayNum(int day)
         {

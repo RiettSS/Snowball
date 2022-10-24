@@ -29,27 +29,27 @@ namespace Model
 
         public void AddCoins(int amount)
         {
-            _coins = _coins.AddCoins(amount);
+            _coins = _coins.Add(amount);
             CoinsAmountChanged?.Invoke(Coins);
             CoinsAmountAdded?.Invoke(amount);
         }
 
         public void ReduceCoins(int amount)
         {
-            _coins = _coins.ReduceCoins(amount);
+            _coins = _coins.Reduce(amount);
             CoinsAmountChanged?.Invoke(Coins);
         }
         
         public void AddCrystals(int amount)
         {
-            _crystals = _crystals.AddCoins(amount);
+            _crystals = _crystals.Add(amount);
             CrystalsAmountChanged?.Invoke(Crystals);
             CrystalsAmountAdded?.Invoke(amount);
         }
 
         public void ReduceCrystals(int amount)
         {
-            _crystals = _crystals.ReduceCoins(amount);
+            _crystals = _crystals.Reduce(amount);
             CrystalsAmountChanged?.Invoke(Crystals);
         }
 

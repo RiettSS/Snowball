@@ -1,4 +1,5 @@
-﻿using UI;
+﻿using Model.DailyReward.ChestRewards;
+using UI;
 
 namespace Model.DailyReward
 {
@@ -12,6 +13,7 @@ namespace Model.DailyReward
         {
             _wallet = wallet;
             _viewFactory = viewFactory;
+            //_chestRewardScreen = _chestRewardScreen;  
             _dayCount = 1;
         }
         
@@ -43,7 +45,15 @@ namespace Model.DailyReward
 
         public Reward CreateChestReward()
         {
-            throw new System.NotImplementedException();
+            var reward = new ChestReward(_wallet);
+            var view = _viewFactory.GetChestRewardView();
+            view.GetComponent<ChestRewardView>();
+            var presenter = new ChestRewardPresenter(reward, view);
+            view.SetDayNum(_dayCount);
+            reward.Day = _dayCount;
+            _dayCount++;
+            presenter.Initialize();
+            return reward;
         }
     }
 }

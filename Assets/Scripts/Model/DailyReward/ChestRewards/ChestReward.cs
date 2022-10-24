@@ -1,23 +1,17 @@
-﻿namespace Model.DailyReward
+﻿namespace Model.DailyReward.ChestRewards
 {
     public  class ChestReward : Reward
     {
         private Wallet _wallet;
         
-        private ChestReward(Wallet wallet)
+        public ChestReward(Wallet wallet)
         {
             _wallet = wallet;
         }
         
         public override void Apply()
         {
-            
             base.Apply();
-        }
-
-        private void ShowChestReward()
-        {
-            
         }
     }
 }
