@@ -1,4 +1,5 @@
 ﻿using Model.DailyReward.ChestRewards;
+using Model.DailyReward.ChestRewards.ChestScreen;
 using UI;
 
 namespace Model.DailyReward
@@ -7,13 +8,14 @@ namespace Model.DailyReward
     {
         private Wallet _wallet;
         private RewardViewFactory _viewFactory;
+        private PrizeMachine _prizeMachine;
         private int _dayCount;
-        
-        public RewardFactory(Wallet wallet, RewardViewFactory viewFactory)    
+
+        public RewardFactory(Wallet wallet, RewardViewFactory viewFactory, PrizeMachine prizeMachine)    
         {
             _wallet = wallet;
             _viewFactory = viewFactory;
-            //_chestRewardScreen = _chestRewardScreen;  
+            _prizeMachine = prizeMachine;
             _dayCount = 1;
         }
         
@@ -45,7 +47,7 @@ namespace Model.DailyReward
 
         public Reward CreateChestReward()
         {
-            var reward = new ChestReward(_wallet);
+            var reward = new ChestReward(_wallet, _prizeMachine);
             var view = _viewFactory.GetChestRewardView();
             view.GetComponent<ChestRewardView>();
             var presenter = new ChestRewardPresenter(reward, view);

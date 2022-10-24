@@ -1259,8 +1259,8 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 895793176}
-  - {fileID: 521266937}
   - {fileID: 751425614}
+  - {fileID: 521266937}
   - {fileID: 143265137}
   _installerPrefabs: []
   _autoRun: 1
@@ -3139,6 +3139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewFactory: {fileID: 1237372263}
+  _prizeMachineView: {fileID: 1428424788}
 --- !u!1 &819371265
 GameObject:
   m_ObjectHideFlags: 0
@@ -4412,7 +4413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8529d281990749268cc8b90da23d69ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinsSlotPrefab: {fileID: 0}
+  _coinsSlotPrefab: {fileID: 592599694161302014, guid: 3e9ea1f57ada9b34b9f0928c0ed189e7,
+    type: 3}
   _crystalsSlotPrefab: {fileID: 3594407788610222036, guid: d10462cfb4a5e9b458f3833b06def255,
     type: 3}
   _gridTransform: {fileID: 1376556956}
@@ -4911,13 +4913,14 @@ GameObject:
   - component: {fileID: 1428424785}
   - component: {fileID: 1428424787}
   - component: {fileID: 1428424786}
+  - component: {fileID: 1428424788}
   m_Layer: 0
-  m_Name: ChestReward
+  m_Name: PrizeMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1428424785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4980,6 +4983,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428424784}
   m_CullTransparentMesh: 1
+--- !u!114 &1428424788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428424784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9700a543ab14f1eaab05207e1ff138b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dailyRewards: {fileID: 545204201}
+  _mainMenu: {fileID: 1895417296}
 --- !u!1001 &1434310654
 PrefabInstance:
   m_ObjectHideFlags: 0

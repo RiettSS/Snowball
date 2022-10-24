@@ -8,6 +8,9 @@ namespace Model.DailyReward.ChestRewards.ChestScreen
 {
     public class PrizeMachine : IInitializable, IDisposable
     {
+        public event Action OnShow;
+        public event Action OnHide;
+        
         private SlotProvider _slotProvider;
         private ChestRewardCalculator _rewardCalculator;
         private Wallet _wallet;
@@ -44,6 +47,16 @@ namespace Model.DailyReward.ChestRewards.ChestScreen
             }
         }
 
+        public void Show()
+        {
+            OnShow?.Invoke();
+        }
+
+        public void Hide()
+        {
+            OnHide?.Invoke();
+        }
+        
         private void OpenSlot(Slot slot)
         {
             if (_rewardCalculator.AddSlot(slot))
@@ -62,11 +75,13 @@ namespace Model.DailyReward.ChestRewards.ChestScreen
             {
                 _wallet.AddCrystals(amount);
             }
+            Hide();
         }
 
         private void GameOver()
         {
             Debug.Log("No Reward");
+            Hide();
         }
     }
 }
