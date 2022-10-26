@@ -10,6 +10,9 @@ namespace Model.DailyReward.ChestRewards.ChestScreen
     {
         public event Action OnShow;
         public event Action OnHide;
+        public event Action OnWin;
+        public event Action OnLose;
+        public event Action SlotOpen;
         
         private SlotProvider _slotProvider;
         private ChestRewardCalculator _rewardCalculator;
@@ -56,12 +59,13 @@ namespace Model.DailyReward.ChestRewards.ChestScreen
         {
             OnHide?.Invoke();
         }
-        
+
         private void OpenSlot(Slot slot)
         {
             if (_rewardCalculator.AddSlot(slot))
             {
                 slot.Open();
+                SlotOpen?.Invoke();
             }
         }
 
@@ -75,13 +79,14 @@ namespace Model.DailyReward.ChestRewards.ChestScreen
             {
                 _wallet.AddCrystals(amount);
             }
-            Hide();
+            
+            OnWin?.Invoke();
         }
 
         private void GameOver()
         {
             Debug.Log("No Reward");
-            Hide();
+            OnLose?.Invoke();
         }
     }
 }

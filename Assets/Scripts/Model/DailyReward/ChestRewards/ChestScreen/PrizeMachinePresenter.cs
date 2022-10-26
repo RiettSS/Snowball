@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.VisualScripting.FullSerializer.Internal.Converters;
 using Zenject;
 
 namespace Model.DailyReward.ChestRewards.ChestScreen
@@ -18,12 +19,18 @@ namespace Model.DailyReward.ChestRewards.ChestScreen
         {
             _machine.OnShow += _view.Show;
             _machine.OnHide += _view.Hide;
+            _machine.OnWin += _view.Win;
+            _machine.OnLose += _view.Lose;
+            _machine.SlotOpen += _view.OnSlotOpen;
         }
 
         public void Dispose()
         {
             _machine.OnShow -= _view.Show;
             _machine.OnHide -= _view.Hide;
+            _machine.OnWin -= _view.Win;
+            _machine.OnLose -= _view.Lose;
+            _machine.SlotOpen -= _view.OnSlotOpen;
         }
     }
 }

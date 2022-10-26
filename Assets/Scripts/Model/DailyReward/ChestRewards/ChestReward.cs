@@ -1,16 +1,13 @@
 ﻿using Model.DailyReward.ChestRewards.ChestScreen;
-using UnityEngine;
 
 namespace Model.DailyReward.ChestRewards
 {
     public  class ChestReward : Reward
     {
-        private Wallet _wallet;
-        private PrizeMachine _prizeMachine;
+        private readonly PrizeMachine _prizeMachine;
         
-        public ChestReward(Wallet wallet, PrizeMachine prizeMachine)
+        public ChestReward(PrizeMachine prizeMachine)
         {
-            _wallet = wallet;
             _prizeMachine = prizeMachine;
         }
         
@@ -18,7 +15,6 @@ namespace Model.DailyReward.ChestRewards
         {
             base.Apply();
             _prizeMachine.Show();
-            Debug.Log("CHEST REWARD APPLY");
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Model.DailyReward
 
         public Reward CreateChestReward()
         {
-            var reward = new ChestReward(_wallet, _prizeMachine);
+            var reward = new ChestReward(_prizeMachine);
             var view = _viewFactory.GetChestRewardView();
             view.GetComponent<ChestRewardView>();
             var presenter = new ChestRewardPresenter(reward, view);
