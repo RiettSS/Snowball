@@ -130,5 +130,36 @@ namespace Model
                 return info;
             }
         }
+        
+        public static void SaveUnlockedLevelsCount(int levelsCount)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            string path = Application.persistentDataPath + "/passedLevels";
+            FileStream stream = new FileStream(path, FileMode.Create);
+            
+            formatter.Serialize(stream, levelsCount);
+            stream.Close();
+        }
+
+        public static int LoadUnlockedLevelsCount()
+        {
+            string path = Application.persistentDataPath + "/passedLevels";
+
+            if (File.Exists(path))
+            { 
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream stream = new FileStream(path, FileMode.Open);
+
+                int info = (int)formatter.Deserialize(stream);
+                stream.Close();
+                return info;
+            }
+            else
+            {
+                var levelsCount = 1;
+                SaveUnlockedLevelsCount(levelsCount);
+                return levelsCount;
+            }
+        }
     }
 }
