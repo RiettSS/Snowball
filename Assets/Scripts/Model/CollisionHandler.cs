@@ -14,11 +14,12 @@ namespace Model
         private readonly Wallet _wallet;
         private Wallet _levelWallet;
 
-        public CollisionHandler(Ball ball, IScaler ballScaler, Wallet wallet)
+        public CollisionHandler(Ball ball, IScaler ballScaler, Wallet wallet, PopUpShower popUpShower)
         {
             _ball = ball;
             _ballScaler = ballScaler;
             _wallet = wallet;
+            _popUpShower = popUpShower;
 
             _levelWallet = new Wallet(0);
         }
@@ -45,9 +46,19 @@ namespace Model
 
         public void Handle(Finish finish)
         {
-            _wallet.AddCoins(_levelWallet.Coins);
-            _wallet.SaveCurrencies();
-            _levelWallet = new Wallet(0);
+            if (_ball.Level == _ball.MaxLevel)
+            {
+                _wallet.AddCoins(_levelWallet.Coins);
+                _wallet.SaveCurrencies();
+                _levelWallet = new Wallet(0);
+                _popUpShower.ShowPopUp(PopUpType.Finish);
+            }
+            else
+            {
+                _levelWallet = new Wallet(0);
+                _popUpShower.ShowPopUp(PopUpType.Lose);
+            }
+
             _ball.StopMovement();
             OnFinished?.Invoke();
         }

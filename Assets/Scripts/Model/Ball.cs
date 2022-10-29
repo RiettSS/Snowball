@@ -15,6 +15,7 @@ namespace Model
         public event Action OnSmashed;
 
         public int Level => _level.Value;
+        public int MaxLevel => _level.MaxValue;
         private Level _level;
         private Tutorial _tutorial;
 
