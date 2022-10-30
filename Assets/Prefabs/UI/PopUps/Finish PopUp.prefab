@@ -258,8 +258,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3510041529536187788}
         m_TargetAssemblyTypeName: FinishPopUp, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -671,8 +671,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3510041529536187788}
         m_TargetAssemblyTypeName: FinishPopUp, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+        m_MethodName: LoadMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -804,8 +804,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3510041529536187788}
         m_TargetAssemblyTypeName: FinishPopUp, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+        m_MethodName: Replay
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

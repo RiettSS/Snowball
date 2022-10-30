@@ -1,13 +1,13 @@
-﻿
-using System;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
-namespace SceneLoader
+namespace SceneLoading
 {
-    public class SceneLoaderPresenter : IInitializable, IDisposable
+    public class SceneLoaderPresenter : IInitializable
     {
-        private SceneLoader _sceneLoader;
-        private SceneLoaderView _view;
+        private readonly SceneLoader _sceneLoader;
+        private readonly SceneLoaderView _view;
 
         public SceneLoaderPresenter(SceneLoader sceneLoader, SceneLoaderView view)
         {
@@ -19,12 +19,6 @@ namespace SceneLoader
         {
             _sceneLoader.LoadingStarted += _view.OnLoadingStarted;
             _sceneLoader.Loaded += _view.OnLoaded;
-        }
-
-        public void Dispose()
-        {
-            _sceneLoader.LoadingStarted -= _view.OnLoadingStarted;
-            _sceneLoader.Loaded -= _view.OnLoaded;
         }
     }
 }

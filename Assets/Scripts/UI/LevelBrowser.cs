@@ -9,11 +9,11 @@ public class LevelBrowser : MonoBehaviour
     [SerializeField] private LevelButton _lockedButtonPrefab;
     [SerializeField] private Transform _contentView;
 
-    private SceneLoader.SceneLoader _sceneLoader;
+    private SceneLoading.SceneLoader _sceneLoader;
     private int _unlockedLevels;
 
     [Inject]
-    public void Construct(SceneLoader.SceneLoader sceneLoader)
+    public void Construct(SceneLoading.SceneLoader sceneLoader)
     {
         _sceneLoader = sceneLoader;
     }
@@ -21,6 +21,7 @@ public class LevelBrowser : MonoBehaviour
     private void Awake()
     {
         _unlockedLevels = SaveLoadSystem.LoadUnlockedLevelsCount();
+        Debug.Log(_unlockedLevels);
         
         for (int i = 1; i <= _unlockedLevels; i++)
         {

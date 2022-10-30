@@ -1,8 +1,8 @@
 using System;
 using Model;
+using SceneLoading;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 public class FinishPopUp : MonoBehaviour
@@ -11,18 +11,32 @@ public class FinishPopUp : MonoBehaviour
     [SerializeField] private TMP_Text _coinsText;
     private ScoreSystem _scoreSystem;
     private Wallet _wallet;
+    private SceneLoader _sceneLoader;
     private int _coinsOnLevel;
 
     [Inject]
-    public void Construct(ScoreSystem scoreSystem, Wallet wallet)
+    public void Construct(ScoreSystem scoreSystem, Wallet wallet, SceneLoader sceneLoader)
     {
         _scoreSystem = scoreSystem;
         _wallet = wallet;
+        _sceneLoader = sceneLoader;
     }
 
-    public void LoadScene(string sceneNum)
+    public void LoadNextLevel()
     {
-        SceneManager.LoadSceneAsync(sceneNum);
+        var currentSceneNum = Int32.Parse(_sceneLoader.CurrentScene);
+        var desiredSceneNum = currentSceneNum + 1;
+        _sceneLoader.LoadScene(desiredSceneNum.ToString());
+    }
+
+    public void Replay()
+    {
+        _sceneLoader.LoadScene(_sceneLoader.CurrentScene);
+    }
+
+    public void LoadMenu()
+    {
+        _sceneLoader.LoadScene("MainMenu");
     }
 
     private void AddCoinsToReward(int coins)

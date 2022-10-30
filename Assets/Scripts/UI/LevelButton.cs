@@ -8,10 +8,10 @@ public class LevelButton : MonoBehaviour
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Button _button;
     
-    private SceneLoader.SceneLoader _sceneLoader;
+    private SceneLoading.SceneLoader _sceneLoader;
     private int _levelToLoad;
 
-    public void Construct(SceneLoader.SceneLoader sceneLoader)
+    public void Construct(SceneLoading.SceneLoader sceneLoader)
     {
         _sceneLoader = sceneLoader;
     }

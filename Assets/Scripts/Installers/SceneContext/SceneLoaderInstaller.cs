@@ -1,12 +1,16 @@
+using SceneLoading;
 using UnityEngine;
 using Zenject;
 
 public class SceneLoaderInstaller : MonoInstaller
 {
-    [SerializeField] private SceneLoader.SceneLoaderView sceneLoaderView;
+    [SerializeField] private SceneLoaderView _sceneLoaderView;
 
     public override void InstallBindings()
     {
-        Container.BindInterfacesAndSelfTo<SceneLoader.SceneLoaderView>().FromInstance(sceneLoaderView).AsSingle();
+        var view = Container.InstantiatePrefabForComponent<SceneLoaderView>(_sceneLoaderView);
+        DontDestroyOnLoad(view);
+        Container.BindInterfacesAndSelfTo<SceneLoaderView>().FromInstance(view).AsSingle();
+        Container.BindInterfacesAndSelfTo<SceneLoaderPresenter>().FromNew().AsSingle();
     }
 }

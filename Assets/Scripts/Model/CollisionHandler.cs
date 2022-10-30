@@ -1,4 +1,5 @@
 ﻿using System;
+using SceneLoading;
 using UI.Popup;
 using UnityEngine;
 
@@ -12,14 +13,17 @@ namespace Model
         private readonly IScaler _ballScaler;
         private readonly PopUpShower _popUpShower;
         private readonly Wallet _wallet;
+        private readonly SceneLoader _sceneLoader;
         private Wallet _levelWallet;
 
-        public CollisionHandler(Ball ball, IScaler ballScaler, Wallet wallet, PopUpShower popUpShower)
+        public CollisionHandler(Ball ball, IScaler ballScaler, Wallet wallet, PopUpShower popUpShower, SceneLoader sceneLoader)
         {
             _ball = ball;
             _ballScaler = ballScaler;
             _wallet = wallet;
             _popUpShower = popUpShower;
+            _sceneLoader = sceneLoader;
+            
 
             _levelWallet = new Wallet(0);
         }
@@ -52,6 +56,7 @@ namespace Model
                 _wallet.SaveCurrencies();
                 _levelWallet = new Wallet(0);
                 _popUpShower.ShowPopUp(PopUpType.Finish);
+                SaveLoadSystem.SaveUnlockedLevelsCount(Int32.Parse(_sceneLoader.CurrentScene) + 1);
             }
             else
             {

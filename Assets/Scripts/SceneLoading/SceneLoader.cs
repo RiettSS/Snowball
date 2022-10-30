@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections;
+using System.Threading;
 using System.Threading.Tasks;
-using UnityEngine;
+using Model;
 using UnityEngine.SceneManagement;
 
-namespace SceneLoader
+namespace SceneLoading
 {
     public class SceneLoader
     {
@@ -22,26 +22,21 @@ namespace SceneLoader
         {
             LoadSceneAsync(sceneName);
             CurrentScene = sceneName;
-        }   
-        
-        private IEnumerator Load(string sceneName)
-        {
-            LoadingStarted?.Invoke();
-            var operation = SceneManager.LoadSceneAsync(sceneName);
-            
-            while (!operation.isDone)
-            {
-                yield return new WaitForSeconds(0.5f);
-            }
-        
-            Loaded?.Invoke();
-            yield return null;
         }
 
         private async void LoadSceneAsync(string sceneName)
         {
             LoadingStarted?.Invoke();
-            await Task.Run(() => SceneManager.LoadScene(sceneName));
+            var operation = SceneManager.LoadSceneAsync(sceneName);
+
+            while (!operation.isDone)
+            {
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(200);
+                });
+            }
+
             Loaded?.Invoke();
         }
     }
