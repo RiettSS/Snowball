@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Model;
+using Firebase.Analytics;
 using UnityEngine.SceneManagement;
 
 namespace SceneLoading
@@ -27,6 +27,7 @@ namespace SceneLoading
         private async void LoadSceneAsync(string sceneName)
         {
             LoadingStarted?.Invoke();
+
             var operation = SceneManager.LoadSceneAsync(sceneName);
 
             while (!operation.isDone)
