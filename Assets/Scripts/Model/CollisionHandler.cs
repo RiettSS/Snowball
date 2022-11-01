@@ -56,7 +56,10 @@ namespace Model
                 _wallet.SaveCurrencies();
                 _levelWallet = new Wallet(0);
                 _popUpShower.ShowPopUp(PopUpType.Finish);
-                SaveLoadSystem.SaveUnlockedLevelsCount(Int32.Parse(_sceneLoader.CurrentScene) + 1);
+                var nextSceneNum = Int32.Parse(_sceneLoader.CurrentScene) + 1;
+                
+                if(nextSceneNum > SaveLoadSystem.LoadUnlockedLevelsCount())
+                    SaveLoadSystem.SaveUnlockedLevelsCount(nextSceneNum);
             }
             else
             {
