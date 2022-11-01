@@ -1,4 +1,6 @@
+using Firebase.Analytics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SceneLoading
 {
@@ -13,8 +15,9 @@ namespace SceneLoading
 
         public void OnLoaded()
         {
-            Debug.Log("OnLoaded");
             LoadingScreen.SetActive(false);
+            FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelStart,
+                new Parameter(FirebaseAnalytics.ParameterLevelName, SceneManager.GetActiveScene().name));
         }
     }
 }
