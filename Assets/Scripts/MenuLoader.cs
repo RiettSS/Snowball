@@ -14,6 +14,7 @@ public class MenuLoader : MonoBehaviour
     
     private void Start()
     {
-        _sceneLoader.LoadScene("MainMenu");
+        //_sceneLoader.LoadScene("MainMenu");
+        _sceneLoader.LoadScene("13");
     }
 }
