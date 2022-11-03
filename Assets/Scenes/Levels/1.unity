@@ -3233,7 +3233,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Press here to
 
-        go Left!'
+        go Right!'
       objectReference: {fileID: 0}
     - target: {fileID: 7488140431710869658, guid: facc445ac27608942b4c9aba844e9231,
         type: 3}
