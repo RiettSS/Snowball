@@ -4,6 +4,8 @@ using Zenject;
 
 public class MenuLoader : MonoBehaviour
 {
+    [SerializeField] private string _sceneToLoad;
+    
     private SceneLoader _sceneLoader;
 
     [Inject]
@@ -14,7 +16,6 @@ public class MenuLoader : MonoBehaviour
     
     private void Start()
     {
-        //_sceneLoader.LoadScene("MainMenu");
-        _sceneLoader.LoadScene("13");
+        _sceneLoader.LoadScene(_sceneToLoad);
     }
 }
