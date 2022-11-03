@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.8392157, g: 0.8392157, b: 0.8392157, a: 1}
+  m_FogColor: {r: 0.7764706, g: 0.92156863, b: 1, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.0015
+  m_FogDensity: 0.003
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -944,6 +944,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8890830349511381004, guid: bb6a2d826c78e5445b13c4bf8de24a42,
     type: 3}
   m_PrefabInstance: {fileID: 133972250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &154930447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 330585546}
+    m_Modifications:
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9996574
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.02617699
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472297337121976539, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+        type: 3}
+      propertyPath: m_Name
+      value: SnowParticles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9733f8fbe3d40748b3e872602d9a7bc, type: 3}
+--- !u!4 &154930448 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3422899195452953849, guid: a9733f8fbe3d40748b3e872602d9a7bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 154930447}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &154948214
 PrefabInstance:
@@ -2768,7 +2843,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 250
   field of view: 60.000004
   orthographic: 0
   orthographic size: 5
@@ -2794,14 +2869,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.2840153, y: 0, z: 0, w: 0.95881975}
+  m_LocalRotation: {x: 0.31730464, y: 0, z: 0, w: 0.94832367}
   m_LocalPosition: {x: 9.963077, y: 10.368606, z: -8.569099}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 154930448}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 33, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 37, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
