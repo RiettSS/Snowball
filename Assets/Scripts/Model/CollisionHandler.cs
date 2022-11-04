@@ -2,6 +2,7 @@
 using SceneLoading;
 using UI.Popup;
 using UnityEngine;
+using Vibration;
 
 namespace Model
 {
@@ -33,6 +34,7 @@ namespace Model
             if (obstacle.Level <= _ball.Level)
             {
                 obstacle.Smash();
+                Vibrator.Vibrate();
             }
             else
             {

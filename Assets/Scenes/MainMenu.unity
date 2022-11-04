@@ -1307,7 +1307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &322586341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f7b15076a27134ab3c113be99d943c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelCount: 4
+  _levelCount: 20
   _buttonPrefab: {fileID: 3009760242221389213, guid: b8f82a9e7630f104eb4853ca9aa0370e,
     type: 3}
   _lockedButtonPrefab: {fileID: 3009760242221389213, guid: 5cf4e635d8a6dc143a8176cbf67c17f8,
@@ -5505,7 +5505,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 958, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1509421348
 MonoBehaviour:
@@ -6092,7 +6092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1895417297
 MonoBehaviour:
   m_ObjectHideFlags: 0
