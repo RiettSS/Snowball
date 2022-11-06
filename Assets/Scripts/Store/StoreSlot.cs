@@ -1,7 +1,9 @@
 ﻿using System;
 using BallSkinLoader;
+using Firebase.Analytics;
 using SkinDictionaries;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Store
 {
@@ -59,6 +61,9 @@ namespace Store
         {
             if (_storage.IsBought(SkinType))
                 return false;
+
+            FirebaseAnalytics.LogEvent("store_skin_bought",
+                new Parameter("skin_name", SkinNames.GetSkinName(SkinType)));
 
             return _storage.TryBuy(SkinType);
         }

@@ -1,4 +1,6 @@
 ﻿using System;
+using Firebase.Analytics;
+using UnityEngine.SceneManagement;
 
 namespace Model
 {
@@ -27,6 +29,10 @@ namespace Model
             {
                 _ball.StopMovement();
                 _ball.Smash();
+                
+                FirebaseAnalytics.LogEvent("level_defeat_by_obstacle",
+                    new Parameter(FirebaseAnalytics.ParameterLevelName, SceneManager.GetActiveScene().name),
+                    new Parameter("ball_level", _ball.Level));
             }
             else if (obstacle.Level == _ball.Level)
             {

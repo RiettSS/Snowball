@@ -1,7 +1,9 @@
 ﻿using System;
+using Firebase.Analytics;
 using SceneLoading;
 using UI.Popup;
-using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using Vibration;
 
 namespace Model
@@ -15,15 +17,17 @@ namespace Model
         private readonly PopUpShower _popUpShower;
         private readonly Wallet _wallet;
         private readonly SceneLoader _sceneLoader;
+        private readonly ScoreSystem _scoreSystem;
         private Wallet _levelWallet;
 
-        public CollisionHandler(Ball ball, IScaler ballScaler, Wallet wallet, PopUpShower popUpShower, SceneLoader sceneLoader)
+        public CollisionHandler(Ball ball, IScaler ballScaler, Wallet wallet, PopUpShower popUpShower, SceneLoader sceneLoader, ScoreSystem scoreSystem)
         {
             _ball = ball;
             _ballScaler = ballScaler;
             _wallet = wallet;
             _popUpShower = popUpShower;
             _sceneLoader = sceneLoader;
+            _scoreSystem = scoreSystem;
             
 
             _levelWallet = new Wallet(0);
@@ -60,6 +64,10 @@ namespace Model
                 _popUpShower.ShowPopUp(PopUpType.Finish);
                 var nextSceneNum = Int32.Parse(_sceneLoader.CurrentScene) + 1;
                 
+                FirebaseAnalytics.LogEvent("level_success",
+                    new Parameter(FirebaseAnalytics.ParameterLevelName, SceneManager.GetActiveScene().name),
+                    new Parameter(FirebaseAnalytics.ParameterScore, _scoreSystem.Score));
+                
                 if(nextSceneNum > SaveLoadSystem.LoadUnlockedLevelsCount())
                     SaveLoadSystem.SaveUnlockedLevelsCount(nextSceneNum);
             }
@@ -67,6 +75,10 @@ namespace Model
             {
                 _levelWallet = new Wallet(0);
                 _popUpShower.ShowPopUp(PopUpType.Lose);
+                
+                FirebaseAnalytics.LogEvent("level_defeat_on_finish",
+                    new Parameter(FirebaseAnalytics.ParameterLevelName, SceneManager.GetActiveScene().name),
+                    new Parameter("ball_level", _ball.Level));
             }
 
             _ball.StopMovement();
