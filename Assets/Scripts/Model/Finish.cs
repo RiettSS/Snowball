@@ -1,6 +1,4 @@
-﻿using UI.Popup;
-
-namespace Model
+﻿namespace Model
 {
     public class Finish
     {
