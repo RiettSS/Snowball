@@ -11,6 +11,6 @@
         House,
         Fire,
         Coin,
-        
+        BlueSpike,
     }
 }

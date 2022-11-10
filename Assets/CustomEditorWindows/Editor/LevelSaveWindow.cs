@@ -23,7 +23,6 @@ public class LevelSaveWindow : EditorWindow
     {
         _obstaclesParent = EditorGUILayout.ObjectField("ObstaclesParent", _obstaclesParent, typeof(GameObject), true) as GameObject;
         _coinsParent = EditorGUILayout.ObjectField("CoinsParent", _coinsParent, typeof(GameObject), true) as GameObject;
-        _levelBuilderView = EditorGUILayout.ObjectField("CoinsParent", _levelBuilderView, typeof(LevelBuilderView), true) as LevelBuilderView;
         _levelName = EditorGUILayout.TextField("LevelName", _levelName);
         
         if (GUILayout.Button("Save Level"))
@@ -68,6 +67,7 @@ public class LevelSaveWindow : EditorWindow
 
         var level = new Level(obstacleDTOs, coinDTOs);
         SaveLoadSystem.SaveLevel(level, _levelName);
+        Debug.Log("Level " + _levelName + " saved successfully");
     }
 
     private void LoadLevel()
@@ -86,5 +86,7 @@ public class LevelSaveWindow : EditorWindow
         {
             editorBuilder.SpawnObstacle(obstacle, obstaclesParent);
         }
+        
+        Debug.Log("Level " + _levelName + " loaded successfully");
     }
 }
