@@ -20,14 +20,12 @@ namespace Presenter
         public void Initialize()
         {
             _view.OnCollisionDetected += _model.Collide;
-            //_view.OnCollisionDetected += _model.Smash;
             _model.OnSmash += _view.Smash;
         }
 
         public void Dispose()
         {
             _view.OnCollisionDetected -= _model.Collide;
-            //_view.OnCollisionDetected -= _model.Smash;
             _model.OnSmash -= _view.Smash;
         }
     }

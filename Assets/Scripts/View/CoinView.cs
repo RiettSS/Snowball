@@ -4,8 +4,12 @@ namespace View
 {
     public class CoinView : CollidableView
     {
-        [SerializeField] private int _cost;
-        public int Cost => _cost;
+        [SerializeField] public int Cost;
+        
+        public override int GetSaveModel()
+        {
+            return 3;
+        }
 
         public void Release()
         {

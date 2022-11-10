@@ -3,7 +3,6 @@ using Firebase.Analytics;
 using SceneLoading;
 using UI.Popup;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 using Vibration;
 
 namespace Model

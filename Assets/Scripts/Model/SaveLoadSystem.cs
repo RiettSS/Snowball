@@ -161,5 +161,27 @@ namespace Model
                 return levelsCount;
             }
         }
+        
+        public static void SaveLevel(LevelLoading.Level level, string levelName)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            string path = "Assets/Levels/"+levelName;
+            FileStream stream = new FileStream(path, FileMode.Create);
+            
+            formatter.Serialize(stream, level);
+            stream.Close();
+        }
+
+        public static LevelLoading.Level LoadLevel(string levelName)
+        {
+            string path = "Assets/Levels/" + levelName;
+
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            var level = (LevelLoading.Level)formatter.Deserialize(stream);
+            stream.Close();
+            return level;
+        }
     }
 }
