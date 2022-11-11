@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LevelLoading
+namespace LevelLoading.legacy
 {
     public class LevelBuilderView : MonoBehaviour
     {

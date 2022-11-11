@@ -1,7 +1,7 @@
 ﻿using System;
 using Zenject;
 
-namespace LevelLoading
+namespace LevelLoading.legacy
 {
     public class LevelBuilderPresenter : IInitializable, IDisposable
     {

@@ -5,9 +5,14 @@ using View;
 
 namespace LevelLoading
 {
-    public class EditorLevelLoader
+    public class RuntimeLevelLoader
     {
         private CollisionHandler _collisionHandler;
+
+        public RuntimeLevelLoader(CollisionHandler collisionHandler)
+        {
+            _collisionHandler = collisionHandler;
+        }
 
         public void SpawnObstacle(ObstacleDTO obstacleDto, GameObject parent)
         {
@@ -25,6 +30,7 @@ namespace LevelLoading
 
             var obstacleModel = new Obstacle(obstacleView.Level, obstacleView.ScorePerObstacle, _collisionHandler);
             var presenter = new ObstaclePresenter(obstacleModel, obstacleView);
+            presenter.Initialize();
         }
 
         public void SpawnCoin(CoinDTO coinDto, GameObject parent)
@@ -43,6 +49,7 @@ namespace LevelLoading
 
             var coinModel = new Coin(coinView.Cost, _collisionHandler);
             var presenter = new CoinPresenter(coinModel, coinView);
+            presenter.Initialize();
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using LevelLoading;
+using LevelLoading.legacy;
 using Model;
 using UnityEditor;
 using UnityEngine;
