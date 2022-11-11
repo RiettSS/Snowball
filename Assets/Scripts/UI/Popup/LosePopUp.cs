@@ -9,23 +9,23 @@ public class LosePopUp : MonoBehaviour
     [SerializeField] private TMP_Text _scoreText;
 
     private ScoreSystem _scoreSystem;
-    private SceneLoader _sceneLoader;
+    private LevelLoader _levelLoader;
     
     [Inject]
-    public void Construct(ScoreSystem scoreSystem, SceneLoader sceneLoader)
+    public void Construct(ScoreSystem scoreSystem, LevelLoader levelLoader)
     {
         _scoreSystem = scoreSystem;
-        _sceneLoader = sceneLoader;
+        _levelLoader = levelLoader;
     }
     
     public void Replay()
     {
-        _sceneLoader.LoadScene(_sceneLoader.CurrentScene);
+        _levelLoader.LoadLevel(_levelLoader.CurrentLevel);
     }
 
     public void LoadMenu()
     {
-        _sceneLoader.LoadScene("MainMenu");
+        _levelLoader.LoadLevel("MainMenu");
     }
 
     private void OnEnable()

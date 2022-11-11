@@ -6,19 +6,19 @@ namespace SceneLoading
 {
     public class SceneLoaderPresenter : IInitializable
     {
-        private readonly SceneLoader _sceneLoader;
+        private readonly LevelLoader _levelLoader;
         private readonly SceneLoaderView _view;
 
-        public SceneLoaderPresenter(SceneLoader sceneLoader, SceneLoaderView view)
+        public SceneLoaderPresenter(LevelLoader levelLoader, SceneLoaderView view)
         {
-            _sceneLoader = sceneLoader;
+            _levelLoader = levelLoader;
             _view = view;
         }
         
         public void Initialize()
         {
-            _sceneLoader.LoadingStarted += _view.OnLoadingStarted;
-            _sceneLoader.Loaded += _view.OnLoaded;
+            _levelLoader.LoadingStarted += _view.OnLoadingStarted;
+            _levelLoader.Loaded += _view.OnLoaded;
         }
     }
 }

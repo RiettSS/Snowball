@@ -9,13 +9,13 @@ public class LevelBrowser : MonoBehaviour
     [SerializeField] private LevelButton _lockedButtonPrefab;
     [SerializeField] private Transform _contentView;
 
-    private SceneLoading.SceneLoader _sceneLoader;
+    private SceneLoading.LevelLoader _levelLoader;
     private int _unlockedLevels;
 
     [Inject]
-    public void Construct(SceneLoading.SceneLoader sceneLoader)
+    public void Construct(SceneLoading.LevelLoader levelLoader)
     {
-        _sceneLoader = sceneLoader;
+        _levelLoader = levelLoader;
     }
     
     private void Awake()
@@ -26,14 +26,14 @@ public class LevelBrowser : MonoBehaviour
         for (int i = 1; i <= _unlockedLevels; i++)
         {
             var button = Instantiate(_buttonPrefab, _contentView);
-            button.Construct(_sceneLoader);
+            button.Construct(_levelLoader);
             button.SetLevel(i);
         }
         
         for (int i = _unlockedLevels + 1; i <= _levelCount; i++)
         {
             var button = Instantiate(_lockedButtonPrefab, _contentView);
-            button.Construct(_sceneLoader);
+            button.Construct(_levelLoader);
             button.SetLevel(i);
         }
     }

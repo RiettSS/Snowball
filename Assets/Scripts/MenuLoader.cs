@@ -6,16 +6,16 @@ public class MenuLoader : MonoBehaviour
 {
     [SerializeField] private string _sceneToLoad;
     
-    private SceneLoader _sceneLoader;
+    private LevelLoader _levelLoader;
 
     [Inject]
-    public void Construct(SceneLoader sceneLoader)
+    public void Construct(LevelLoader levelLoader)
     {
-        _sceneLoader = sceneLoader;
+        _levelLoader = levelLoader;
     }
     
     private void Start()
     {
-        _sceneLoader.LoadScene(_sceneToLoad);
+        _levelLoader.LoadLevel(_sceneToLoad);
     }
 }

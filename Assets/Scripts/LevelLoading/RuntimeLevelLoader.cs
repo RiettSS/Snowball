@@ -8,10 +8,12 @@ namespace LevelLoading
     public class RuntimeLevelLoader
     {
         private CollisionHandler _collisionHandler;
+        private ScoreSystem _scoreSystem;
 
-        public RuntimeLevelLoader(CollisionHandler collisionHandler)
+        public RuntimeLevelLoader(CollisionHandler collisionHandler, ScoreSystem scoreSystem)
         {
             _collisionHandler = collisionHandler;
+            _scoreSystem = scoreSystem;
         }
 
         public void SpawnObstacle(ObstacleDTO obstacleDto, GameObject parent)
@@ -49,6 +51,33 @@ namespace LevelLoading
 
             var coinModel = new Coin(coinView.Cost, _collisionHandler);
             var presenter = new CoinPresenter(coinModel, coinView);
+            presenter.Initialize();
+        }
+
+        public void SpawnRoad(PositionDTO positionDto, GameObject parent)
+        {
+            var prefab = PrefabDictionary.GetPrefab(SavableObjectType.SnowRoad);
+
+            UnityEngine.Vector3 position =
+                new UnityEngine.Vector3(positionDto.Position.x, positionDto.Position.y, positionDto.Position.z);
+            
+            var quaternion = new Quaternion(positionDto.Rotation.x, positionDto.Rotation.y, positionDto.Rotation.z, positionDto.Rotation.w);
+            var road = GameObject.Instantiate(prefab, position, quaternion, null);
+            road.transform.parent = parent.transform;
+        }
+
+        public void SpawnFinish(PositionDTO positionDto)
+        {
+            var prefab = PrefabDictionary.GetPrefab(SavableObjectType.Finish);
+
+            UnityEngine.Vector3 position =
+                new UnityEngine.Vector3(positionDto.Position.x, positionDto.Position.y, positionDto.Position.z);
+            
+            var quaternion = new Quaternion(positionDto.Rotation.x, positionDto.Rotation.y, positionDto.Rotation.z, positionDto.Rotation.w);
+            var finish = GameObject.Instantiate(prefab, position, quaternion, null);
+            var finishView = finish.GetComponent<FinishView>();
+            var finishModel = new Finish(_collisionHandler, _scoreSystem);
+            var presenter = new FinishPresenter(finishModel, finishView);
             presenter.Initialize();
         }
     }

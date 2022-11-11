@@ -7,7 +7,7 @@ namespace Installers.ProjectContext
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelLoader>().AsSingle();
         }
     }
 }

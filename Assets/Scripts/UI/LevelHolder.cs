@@ -7,16 +7,16 @@ public class LevelHolder : MonoBehaviour
 {
     [SerializeField] private TMP_Text _holderText;
 
-    private SceneLoader _sceneLoader;
+    private LevelLoader _levelLoader;
     
     [Inject]
-    public void Construct(SceneLoader sceneLoader)
+    public void Construct(LevelLoader levelLoader)
     {
-        _sceneLoader = sceneLoader;
+        _levelLoader = levelLoader;
     }
     
     private void Start()
     {
-        _holderText.SetText("Level " + _sceneLoader.CurrentScene);
+        _holderText.SetText("Level " + _levelLoader.CurrentLevel);
     }
 }

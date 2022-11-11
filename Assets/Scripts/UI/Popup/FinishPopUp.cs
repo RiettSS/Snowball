@@ -11,32 +11,32 @@ public class FinishPopUp : MonoBehaviour
     [SerializeField] private TMP_Text _coinsText;
     private ScoreSystem _scoreSystem;
     private Wallet _wallet;
-    private SceneLoader _sceneLoader;
+    private LevelLoader _levelLoader;
     private int _coinsOnLevel;
 
     [Inject]
-    public void Construct(ScoreSystem scoreSystem, Wallet wallet, SceneLoader sceneLoader)
+    public void Construct(ScoreSystem scoreSystem, Wallet wallet, LevelLoader levelLoader)
     {
         _scoreSystem = scoreSystem;
         _wallet = wallet;
-        _sceneLoader = sceneLoader;
+        _levelLoader = levelLoader;
     }
 
     public void LoadNextLevel()
     {
-        var currentSceneNum = Int32.Parse(_sceneLoader.CurrentScene);
+        var currentSceneNum = Int32.Parse(_levelLoader.CurrentLevel);
         var desiredSceneNum = currentSceneNum + 1;
-        _sceneLoader.LoadScene(desiredSceneNum.ToString());
+        _levelLoader.LoadLevel(desiredSceneNum.ToString());
     }
 
     public void Replay()
     {
-        _sceneLoader.LoadScene(_sceneLoader.CurrentScene);
+        _levelLoader.LoadLevel(_levelLoader.CurrentLevel);
     }
 
     public void LoadMenu()
     {
-        _sceneLoader.LoadScene("MainMenu");
+        _levelLoader.LoadLevel("MainMenu");
     }
 
     private void AddCoinsToReward(int coins)

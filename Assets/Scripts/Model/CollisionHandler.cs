@@ -15,17 +15,17 @@ namespace Model
         private readonly IScaler _ballScaler;
         private readonly PopUpShower _popUpShower;
         private readonly Wallet _wallet;
-        private readonly SceneLoader _sceneLoader;
+        private readonly LevelLoader _levelLoader;
         private readonly ScoreSystem _scoreSystem;
         private Wallet _levelWallet;
 
-        public CollisionHandler(Ball ball, IScaler ballScaler, Wallet wallet, PopUpShower popUpShower, SceneLoader sceneLoader, ScoreSystem scoreSystem)
+        public CollisionHandler(Ball ball, IScaler ballScaler, Wallet wallet, PopUpShower popUpShower, LevelLoader levelLoader, ScoreSystem scoreSystem)
         {
             _ball = ball;
             _ballScaler = ballScaler;
             _wallet = wallet;
             _popUpShower = popUpShower;
-            _sceneLoader = sceneLoader;
+            _levelLoader = levelLoader;
             _scoreSystem = scoreSystem;
             
 
@@ -61,7 +61,7 @@ namespace Model
                 _wallet.SaveCurrencies();
                 _levelWallet = new Wallet(0);
                 _popUpShower.ShowPopUp(PopUpType.Finish);
-                var nextSceneNum = Int32.Parse(_sceneLoader.CurrentScene) + 1;
+                var nextSceneNum = Int32.Parse(_levelLoader.CurrentLevel) + 1;
                 
                 FirebaseAnalytics.LogEvent("level_success",
                     new Parameter(FirebaseAnalytics.ParameterLevelName, SceneManager.GetActiveScene().name),

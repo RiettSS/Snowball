@@ -15,6 +15,8 @@ namespace LevelLoading
         private static readonly GameObject _fire = Resources.Load("Prefabs/Environment/Obstacles/Fire/Fire") as GameObject;
         private static readonly GameObject _candy = Resources.Load("Prefabs/Environment/Obstacles/Candy/Candy") as GameObject;
         private static readonly GameObject _blueSpike = Resources.Load("Prefabs/Environment/UnbreakableObstacles/Spike") as GameObject;
+        private static readonly GameObject _snowRoad = Resources.Load("Prefabs/Environment/Snowroad") as GameObject;
+        private static readonly GameObject _finish = Resources.Load("Prefabs/Finish/Finish") as GameObject;
         
         private static readonly Dictionary<SavableObjectType, GameObject> Dictionary =
             new ()
@@ -29,6 +31,8 @@ namespace LevelLoading
                 {SavableObjectType.Candy, _candy},
                 {SavableObjectType.BlueSpike, _blueSpike},
                 {SavableObjectType.Bush, _bush},
+                {SavableObjectType.SnowRoad, _snowRoad},
+                {SavableObjectType.Finish, _finish},
             };
 
         public static GameObject GetPrefab(SavableObjectType type)

@@ -5,22 +5,29 @@ using UnityEngine.SceneManagement;
 
 namespace SceneLoading
 {
-    public class SceneLoader
+    public class LevelLoader
     {
         public event Action LoadingStarted;
         public event Action Loaded;
         
-        public string CurrentScene { get; private set; }
+        public string CurrentLevel { get; private set; }
 
-        public SceneLoader()
+        public LevelLoader()
         {
-            CurrentScene = "AppStartup";
+            CurrentLevel = "AppStartup";
         }
         
-        public void LoadScene(string sceneName)
+        public void LoadLevel(string sceneName)
         {
-            LoadSceneAsync(sceneName);
-            CurrentScene = sceneName;
+            CurrentLevel = sceneName;
+            if (sceneName == "MainMenu" || sceneName == "1")
+            {
+                LoadSceneAsync(sceneName);
+            }
+            else
+            {
+                LoadLevelByName(sceneName);
+            }
         }
 
         private async void LoadSceneAsync(string sceneName)
@@ -38,6 +45,11 @@ namespace SceneLoading
             }
 
             Loaded?.Invoke();
+        }
+
+        private void LoadLevelByName(string levelName)
+        {
+            LoadSceneAsync("LevelScreen");
         }
     }
 }

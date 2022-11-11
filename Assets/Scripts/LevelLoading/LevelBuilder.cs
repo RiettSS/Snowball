@@ -1,4 +1,5 @@
 ﻿using Model;
+using SceneLoading;
 using UnityEngine;
 
 namespace LevelLoading
@@ -6,30 +7,42 @@ namespace LevelLoading
     public class LevelBuilder
     {
         private CollisionHandler _collisionHandler;
+        private LevelLoader _levelLoader;
+        private ScoreSystem _scoreSystem;
 
-        public LevelBuilder(CollisionHandler collisionHandler)
+        public LevelBuilder(CollisionHandler collisionHandler, LevelLoader levelLoader, ScoreSystem scoreSystem)
         {
             _collisionHandler = collisionHandler;
-            LoadLevel("6");
-            Debug.Log("Level Builder Created");
+            _levelLoader = levelLoader;
+            _scoreSystem = scoreSystem;
+            
+            LoadLevel(_levelLoader.CurrentLevel);
         }
 
         public void LoadLevel(string levelName)
         {
             var level = SaveLoadSystem.LoadLevel(levelName);
 
-            var editorBuilder = new RuntimeLevelLoader(_collisionHandler);
+            var runtimeBuilder = new RuntimeLevelLoader(_collisionHandler, _scoreSystem);
             var coinsParent = new GameObject("Coins");
             foreach (var coin in level.Coins)
             {
-                editorBuilder.SpawnCoin(coin, coinsParent);
+                runtimeBuilder.SpawnCoin(coin, coinsParent);
             }
 
             var obstaclesParent = new GameObject("Obstacles");
             foreach (var obstacle in level.Obstacles)
             {
-                editorBuilder.SpawnObstacle(obstacle, obstaclesParent);
+                runtimeBuilder.SpawnObstacle(obstacle, obstaclesParent);
             }
+            
+            var roadsParent = new GameObject("Roads");
+            foreach (var road in level.Roads)
+            {
+                runtimeBuilder.SpawnRoad(road, roadsParent);
+            }
+        
+            runtimeBuilder.SpawnFinish(level.Finish);
 
             Debug.Log("Level " + levelName + " loaded successfully");
         }

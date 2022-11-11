@@ -12,5 +12,7 @@
         Fire,
         Coin,
         BlueSpike,
+        SnowRoad,
+        Finish
     }
 }

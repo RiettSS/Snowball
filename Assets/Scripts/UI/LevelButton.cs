@@ -8,12 +8,12 @@ public class LevelButton : MonoBehaviour
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Button _button;
     
-    private SceneLoading.SceneLoader _sceneLoader;
+    private SceneLoading.LevelLoader _levelLoader;
     private int _levelToLoad;
 
-    public void Construct(SceneLoading.SceneLoader sceneLoader)
+    public void Construct(SceneLoading.LevelLoader levelLoader)
     {
-        _sceneLoader = sceneLoader;
+        _levelLoader = levelLoader;
     }
 
     private void Awake()
@@ -29,6 +29,6 @@ public class LevelButton : MonoBehaviour
     
     private void Load()
     {
-        _sceneLoader.LoadScene(_levelToLoad.ToString());
+        _levelLoader.LoadLevel(_levelToLoad.ToString());
     }
 }
