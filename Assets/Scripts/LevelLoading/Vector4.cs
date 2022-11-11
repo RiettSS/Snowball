@@ -3,17 +3,19 @@
 namespace LevelLoading
 {
     [Serializable]
-    public struct Vector3
+    public struct Vector4
     {
         public readonly float x;
         public readonly float y;
         public readonly float z;
+        public readonly float w;
 
-        public Vector3(float x, float y, float z)
+        public Vector4(float x, float y, float z, float w)
         {
             this.x = x;
             this.y = y;
             this.z = z;
+            this.w = w;
         }
     }
 }

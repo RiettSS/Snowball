@@ -6,16 +6,14 @@ namespace LevelLoading
     public struct CoinDTO
     {
         public readonly Vector3 Position;
-        public readonly Vector3 Rotation;
-        public readonly float RotationW;
+        public readonly Vector4 Rotation;
         public readonly int Cost;
         public readonly SavableObjectType Type;
 
-        public CoinDTO(Vector3 position, Vector3 rotation, float rotationW, int cost, SavableObjectType type)
+        public CoinDTO(Vector3 position, Vector4 rotation, int cost, SavableObjectType type)
         {
             Position = position;
             Rotation = rotation;
-            RotationW = rotationW;
             Cost = cost;
             Type = type;
         }

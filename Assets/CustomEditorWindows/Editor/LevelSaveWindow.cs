@@ -45,12 +45,11 @@ public class LevelSaveWindow : EditorWindow
             var position = new LevelLoading.Vector3(view.transform.position.x, view.transform.position.y,
                 view.transform.position.z);
 
-            var rotation = new LevelLoading.Vector3(view.transform.rotation.x, view.transform.rotation.y,
-                view.transform.rotation.z);
+            var rotation = new LevelLoading.Vector4(view.transform.rotation.x, view.transform.rotation.y,
+                view.transform.rotation.z, view.transform.rotation.w);
             
             obstacleDTOs.Add(new ObstacleDTO(position,
                 rotation,
-                view.transform.rotation.w,
                 view.Type, view.ScorePerObstacle, view.Level));
         }
         
@@ -61,7 +60,7 @@ public class LevelSaveWindow : EditorWindow
         foreach (var view in coinList)
         {
             coinDTOs.Add(new CoinDTO(new LevelLoading.Vector3(view.transform.position.x, view.transform.position.y, view.transform.position.z),
-                new LevelLoading.Vector3(view.transform.rotation.x, view.transform.rotation.y, view.transform.rotation.z), view.transform.rotation.w, 
+                new LevelLoading.Vector4(view.transform.rotation.x, view.transform.rotation.y, view.transform.rotation.z, view.transform.rotation.w), 
                 view.Cost, SavableObjectType.Coin));
         }
 
