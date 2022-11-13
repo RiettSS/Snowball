@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e2bd3c031c9177419a8399c9f91c913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 0
   _pointA: {fileID: 6017970059214092257}
   _pointB: {fileID: 2317646762837789158}
 --- !u!114 &3989814141432296303
@@ -238,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34981f9afeb44895941252b7875f8815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cost: 5
+  Cost: 5
 --- !u!1 &7717061094857228486
 GameObject:
   m_ObjectHideFlags: 0

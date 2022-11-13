@@ -24,6 +24,11 @@ namespace Model
             _level = new Level(1, maxLevel);
         }
 
+        public void ChangeLevel(Level level)
+        {
+            _level = level;
+        }
+        
         public void StartMovement()
         {
             OnMovementStarted?.Invoke();

@@ -9,12 +9,16 @@ namespace LevelLoading
         private CollisionHandler _collisionHandler;
         private LevelLoader _levelLoader;
         private ScoreSystem _scoreSystem;
+        private Ball _ball;
+        private IScaler _scaler;
 
-        public LevelBuilder(CollisionHandler collisionHandler, LevelLoader levelLoader, ScoreSystem scoreSystem)
+        public LevelBuilder(CollisionHandler collisionHandler, LevelLoader levelLoader, ScoreSystem scoreSystem, Ball ball, IScaler scaler)
         {
             _collisionHandler = collisionHandler;
             _levelLoader = levelLoader;
             _scoreSystem = scoreSystem;
+            _ball = ball;
+            _scaler = scaler;
             
             LoadLevel(_levelLoader.CurrentLevel);
         }
@@ -44,6 +48,11 @@ namespace LevelLoading
         
             runtimeBuilder.SpawnFinish(level.Finish);
 
+            var ballLevel = new Model.Level(0, level.MaxLevel);
+            _ball.ChangeLevel(ballLevel);
+            
+            _scaler.ChangePoints(level.PointsPerLevel);
+            
             Debug.Log("Level " + levelName + " loaded successfully");
         }
     }

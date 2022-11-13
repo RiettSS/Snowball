@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using System;
+
+namespace Model
 {
     public struct Level
     {
@@ -8,9 +10,21 @@
 
         public Level(int level, int maxLevel)
         {
-            Value = level;
             MaxValue = maxLevel;
             MinValue = 1;
+
+            if (level < MinValue)
+            {
+                Value = MinValue;
+            }
+            else if (level > MaxValue)
+            {
+                Value = MaxValue;
+            }
+            else
+            {
+                Value = level;
+            }
         }
 
         public Level Increase()

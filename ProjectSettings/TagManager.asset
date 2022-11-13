@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EquipButton
   - BuyButton
+  - Road
   layers:
   - Default
   - TransparentFX

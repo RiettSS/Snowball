@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Mime;
 using System.Runtime.Serialization.Formatters.Binary;
 using BallSkinLoader;
 using Model.DailyReward;
@@ -164,8 +165,9 @@ namespace Model
         
         public static void SaveLevel(LevelLoading.Level level, string levelName)
         {
+            string path = Application.dataPath + "/Resources/Levels/" + levelName + ".txt";
+
             BinaryFormatter formatter = new BinaryFormatter();
-            string path = "Assets/Levels/"+levelName;
             FileStream stream = new FileStream(path, FileMode.Create);
             
             formatter.Serialize(stream, level);
@@ -174,10 +176,14 @@ namespace Model
 
         public static LevelLoading.Level LoadLevel(string levelName)
         {
-            string path = "Assets/Levels/" + levelName;
+            var path = "Levels/" + levelName;
+            
+            var textAsset = Resources.Load<TextAsset>(path);  
+            
+            Debug.Log(textAsset);
 
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            var formatter = new BinaryFormatter();
+            Stream stream = new MemoryStream(textAsset.bytes);
 
             var level = (LevelLoading.Level)formatter.Deserialize(stream);
             stream.Close();

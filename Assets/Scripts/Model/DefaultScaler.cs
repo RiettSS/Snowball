@@ -6,14 +6,14 @@ namespace Model
 {
     public class DefaultScaler : IScaler
     {
+        public int MaxPoints => _maxPoints;
+        
         public event Action<int> LevelPointsUpdated;
         public event Action<int> LevelUpdated;
 
-        public int MaxPoints => _maxPoints;
-        
         private readonly Ball _ball;
         private readonly ScoreSystem _scoreSystem;
-        private readonly int _maxPoints;
+        private int _maxPoints;
         private int _levelPoints;
 
         public DefaultScaler(Ball ball, ScoreSystem scoreSystem, int pointsPerLevel)
@@ -21,6 +21,11 @@ namespace Model
             _ball = ball;
             _scoreSystem = scoreSystem;
             _maxPoints = pointsPerLevel;
+        }
+        
+        public void ChangePoints(int maxPoints)
+        {
+            _maxPoints = maxPoints;
         }
         
         public void Handle(Obstacle obstacle)

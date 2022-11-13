@@ -10,5 +10,7 @@ namespace Model
         int MaxPoints { get; }
         
         void Handle(Obstacle obstacle);
+
+        void ChangePoints(int maxPoints);
     }
 }

@@ -9,11 +9,11 @@ using Level = LevelLoading.Level;
 
 public class LevelSaveWindow : EditorWindow
 {
-    private GameObject _obstaclesParent;
-    private GameObject _coinsParent;
     private LevelBuilderView _levelBuilderView;
     private string _levelName;
-    
+    private int _pointsPerLevel;
+    private int _maxLevel;
+
     [MenuItem("Tools/LevelSaver")]
     public static void ShowWindow()
     {
@@ -22,8 +22,8 @@ public class LevelSaveWindow : EditorWindow
 
     private void OnGUI()
     {
-        _obstaclesParent = EditorGUILayout.ObjectField("ObstaclesParent", _obstaclesParent, typeof(GameObject), true) as GameObject;
-        _coinsParent = EditorGUILayout.ObjectField("CoinsParent", _coinsParent, typeof(GameObject), true) as GameObject;
+        _pointsPerLevel = EditorGUILayout.IntField("Points Per Level", _pointsPerLevel);
+        _maxLevel = EditorGUILayout.IntField("Max Level", _maxLevel);
         _levelName = EditorGUILayout.TextField("LevelName", _levelName);
         
         if (GUILayout.Button("Save Level"))
@@ -39,7 +39,7 @@ public class LevelSaveWindow : EditorWindow
 
     private void SaveLevel()
     {
-        var obstaclesList = _obstaclesParent.GetComponentsInChildren<ObstacleView>();
+        var obstaclesList = FindObjectsOfType<ObstacleView>();
         var obstacleDTOs = new List<ObstacleDTO>();
         foreach (var view in obstaclesList)
         {
@@ -54,8 +54,8 @@ public class LevelSaveWindow : EditorWindow
                 view.Type, view.ScorePerObstacle, view.Level));
         }
         
-        
-        var coinList = _coinsParent.GetComponentsInChildren<CoinView>();
+
+        var coinList = FindObjectsOfType<CoinView>();
 
         var coinDTOs = new List<CoinDTO>();
         foreach (var view in coinList)
@@ -65,7 +65,27 @@ public class LevelSaveWindow : EditorWindow
                 view.Cost, SavableObjectType.Coin));
         }
 
-        var level = new Level(obstacleDTOs, coinDTOs);
+        var finish = FindObjectOfType<FinishView>();
+        var finishDTO = new PositionDTO(
+            new LevelLoading.Vector3(finish.transform.position.x, finish.transform.position.y,
+                finish.transform.position.z),
+            new LevelLoading.Vector4(finish.transform.rotation.x, finish.transform.rotation.y,
+                finish.transform.rotation.z, finish.transform.rotation.w));
+
+        var roads = new List<PositionDTO>();
+        var roadObjects = GameObject.FindGameObjectsWithTag("Road");
+
+        foreach (var road in roadObjects)
+        {
+            roads.Add(new PositionDTO(
+                new LevelLoading.Vector3(road.transform.position.x, road.transform.position.y,
+                    road.transform.position.z),
+                new LevelLoading.Vector4(road.transform.rotation.x, road.transform.rotation.y,
+                    road.transform.rotation.z, road.transform.rotation.w)));
+        }
+        
+        
+        var level = new Level(obstacleDTOs, coinDTOs, roads, finishDTO, _pointsPerLevel, _maxLevel);
         SaveLoadSystem.SaveLevel(level, _levelName);
         Debug.Log("Level " + _levelName + " saved successfully");
     }
@@ -86,6 +106,14 @@ public class LevelSaveWindow : EditorWindow
         {
             editorBuilder.SpawnObstacle(obstacle, obstaclesParent);
         }
+
+        var roadsParent = new GameObject("Roads");
+        foreach (var road in level.Roads)
+        {
+            editorBuilder.SpawnRoad(road, roadsParent);
+        }
+        
+        editorBuilder.SpawnFinish(level.Finish);
         
         Debug.Log("Level " + _levelName + " loaded successfully");
     }
