@@ -20687,6 +20687,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3021264407661798294, guid: e5aa5d53cfba682409ae4f1a337f04cc,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 7098980242798872212, guid: e5aa5d53cfba682409ae4f1a337f04cc,
         type: 3}
       propertyPath: m_Layer
@@ -32007,6 +32012,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3986123057098236486, guid: d2968f19a0cda4747ba8b1c91913ca20,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3986123057098236487, guid: d2968f19a0cda4747ba8b1c91913ca20,
         type: 3}
       propertyPath: m_RootOrder
@@ -34460,6 +34470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021264407661798294, guid: 8541cc58591dc764f8e67bd587656d0d,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
       objectReference: {fileID: 0}
     - target: {fileID: 3339567739956317339, guid: 8541cc58591dc764f8e67bd587656d0d,
         type: 3}
@@ -40239,6 +40254,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021264407661798294, guid: d9360376d60d13a4a8bd38b2a4ab2992,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
       objectReference: {fileID: 0}
     - target: {fileID: 7672027816042969341, guid: d9360376d60d13a4a8bd38b2a4ab2992,
         type: 3}

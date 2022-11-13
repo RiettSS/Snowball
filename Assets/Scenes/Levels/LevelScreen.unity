@@ -226,7 +226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217968046}
   m_LocalRotation: {x: 0.2164396, y: -0, z: -0, w: 0.97629607}
-  m_LocalPosition: {x: 9.963077, y: 10.368606, z: -8.569099}
+  m_LocalPosition: {x: -145.6, y: 7, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1349,6 +1349,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209676101903071873, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239213601811596401, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4735013116238695585, guid: 2301562d80e5de646b28d3edd90a80c8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1467,12 +1477,17 @@ PrefabInstance:
     - target: {fileID: 4735013116839240322, guid: 2301562d80e5de646b28d3edd90a80c8,
         type: 3}
       propertyPath: m_text
-      value: 5
+      value: text
       objectReference: {fileID: 0}
     - target: {fileID: 4735013117283137725, guid: 2301562d80e5de646b28d3edd90a80c8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568002198142649590, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2301562d80e5de646b28d3edd90a80c8, type: 3}

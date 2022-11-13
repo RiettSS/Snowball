@@ -43,6 +43,9 @@ public class LevelSaveWindow : EditorWindow
         var obstacleDTOs = new List<ObstacleDTO>();
         foreach (var view in obstaclesList)
         {
+            if (view.gameObject.tag == "UIObstacle")
+                continue;
+
             var position = new LevelLoading.Vector3(view.transform.position.x, view.transform.position.y,
                 view.transform.position.z);
 

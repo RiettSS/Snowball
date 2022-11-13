@@ -7,6 +7,7 @@ TagManager:
   - EquipButton
   - BuyButton
   - Road
+  - UIObstacle
   layers:
   - Default
   - TransparentFX

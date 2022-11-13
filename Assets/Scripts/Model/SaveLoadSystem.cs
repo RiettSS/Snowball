@@ -180,8 +180,6 @@ namespace Model
             
             var textAsset = Resources.Load<TextAsset>(path);  
             
-            Debug.Log(textAsset);
-
             var formatter = new BinaryFormatter();
             Stream stream = new MemoryStream(textAsset.bytes);
 

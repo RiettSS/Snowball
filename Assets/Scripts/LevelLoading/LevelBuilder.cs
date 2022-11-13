@@ -1,5 +1,6 @@
 ﻿using Model;
 using SceneLoading;
+using TMPro;
 using UnityEngine;
 
 namespace LevelLoading

@@ -121,8 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605253ca22664ae4b1e5a62eefb3dc2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scorePerObstacle: 0
-  _level: 99
+  Type: 9
+  ScorePerObstacle: 0
+  Level: 0
   _3dModel: {fileID: 5756722011671097905}
   _slicedPrefab: {fileID: 5756722011671097905}
 --- !u!114 &3369368723109893721

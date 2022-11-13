@@ -9,6 +9,7 @@ namespace Model
         public event Action<int> LevelUpdated;
         
         private IScaler _scaler;
+        private Ball _ball;
 
         public LevelIndicator(IScaler scaler)
         {
