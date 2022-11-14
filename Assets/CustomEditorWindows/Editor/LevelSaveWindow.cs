@@ -61,7 +61,7 @@ public class LevelSaveWindow : EditorWindow
                 rotation, scale,
                 view.Type, view.ScorePerObstacle, view.Level));
 
-            if (!types.Contains(view.Type))
+            if (!types.Contains(view.Type) && view.tag != "IndicatorIgnore")
             {
                 types.Add(view.Type);
             }

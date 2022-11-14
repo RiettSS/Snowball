@@ -67,7 +67,7 @@ namespace LevelLoading
 
             foreach (var obstacleType in obstacleTypes)
             {
-                var gameObject = GameObject.Instantiate(PrefabDictionary.GetPrefab(obstacleType), _uiIndicatorObstaclesTransform);
+                var gameObject = GameObject.Instantiate(IndicatorPrefabDictionary.GetPrefab(obstacleType), _uiIndicatorObstaclesTransform);
                 gameObject.layer = 5;
                 var nestedGameObjects = gameObject.GetComponentsInChildren<Transform>();
                 foreach (var nestedObject in nestedGameObjects)
@@ -76,7 +76,6 @@ namespace LevelLoading
                 }
                 
                 gameObject.tag = "UIObstacle";
-                gameObject.transform.localScale *= 25;
             }
         }
     }

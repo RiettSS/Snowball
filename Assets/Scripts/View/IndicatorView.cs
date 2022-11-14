@@ -32,19 +32,17 @@ namespace View
 
         public void OnLevelChanged(int level)
         {
-            if (level < _maxLevel)
+            if (level <= _maxLevel)
             {
                 ShowObstacleWithLevel(level);
             }
-            else if (level == _maxLevel)
+
+            if (level >= _maxLevel)
             {
-                ShowObstacleWithLevel(level);
                 HideText();
             }
-            else
-            {
-                Disable();
-            }
+            
+            Debug.Log(level + "/" + _maxLevel);
         }
         
         private void ShowObstacleWithLevel(int level)

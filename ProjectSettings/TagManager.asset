@@ -8,6 +8,7 @@ TagManager:
   - BuyButton
   - Road
   - UIObstacle
+  - IndicatorIgnore
   layers:
   - Default
   - TransparentFX
