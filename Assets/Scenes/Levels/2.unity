@@ -16082,6 +16082,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209676101903071873, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239213601811596401, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4735013116238695585, guid: 2301562d80e5de646b28d3edd90a80c8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -16206,6 +16216,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568002198142649590, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2301562d80e5de646b28d3edd90a80c8, type: 3}

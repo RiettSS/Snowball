@@ -12,8 +12,9 @@ namespace LevelLoading
         public readonly PositionDTO Finish;
         public readonly int PointsPerLevel;
         public readonly int MaxLevel;
+        public readonly List<SavableObjectType> ObstacleTypesOnLevel;
 
-        public Level(List<ObstacleDTO> obstacles, List<CoinDTO> coins, List<PositionDTO> roads, PositionDTO finish, int pointsPerLevel, int maxLevel)
+        public Level(List<ObstacleDTO> obstacles, List<CoinDTO> coins, List<PositionDTO> roads, PositionDTO finish, int pointsPerLevel, int maxLevel, List<SavableObjectType> obstacleTypesOnLevel)
         {
             Obstacles = obstacles;
             Coins = coins;
@@ -21,6 +22,7 @@ namespace LevelLoading
             Finish = finish;
             PointsPerLevel = pointsPerLevel;
             MaxLevel = maxLevel;
+            ObstacleTypesOnLevel = obstacleTypesOnLevel;
         }
     }
 }

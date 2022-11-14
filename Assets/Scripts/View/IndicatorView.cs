@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -9,16 +8,20 @@ namespace View
 {
     public class IndicatorView : MonoBehaviour, IInitializable
     {
-        [SerializeField] private List<ObstacleView> _obstacleViews;
+        [SerializeField] private GameObject _obstaclesParent;
         [SerializeField] private TMP_Text _pointsLeftText;
 
+        private List<ObstacleView> _obstacleViews;
         private int _maxLevel;
         private int _minLevel;
 
         public void Initialize()
         {
+            var obstacleViews = _obstaclesParent.GetComponentsInChildren<ObstacleView>();
+            _obstacleViews = obstacleViews.ToList();
+            
             CalculateMinAndMaxLevels();
-            HideAll();
+            HideAllObstacles();
             ShowObstacleWithLevel(_minLevel);
         }
 
@@ -29,25 +32,39 @@ namespace View
 
         public void OnLevelChanged(int level)
         {
-            if(level < _maxLevel)
+            if (level < _maxLevel)
+            {
                 ShowObstacleWithLevel(level);
-            else 
+            }
+            else if (level == _maxLevel)
+            {
+                ShowObstacleWithLevel(level);
+                HideText();
+            }
+            else
+            {
                 Disable();
+            }
         }
         
         private void ShowObstacleWithLevel(int level)
         {
-            HideAll();
+            HideAllObstacles();
             var obstacle = _obstacleViews.FirstOrDefault(x => x.Level == level);
             obstacle.gameObject.SetActive(true);
         }
 
-        private void HideAll()
+        private void HideAllObstacles()
         {
             foreach (var obstacleView in _obstacleViews)
             {
                 obstacleView.gameObject.SetActive(false);
             }
+        }
+
+        private void HideText()
+        {
+            _pointsLeftText.gameObject.SetActive(false);
         }
 
         private void CalculateMinAndMaxLevels()

@@ -9664,6 +9664,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5872561246112928195, guid: ba672ced76379354bb2e563ce2f723d7,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 5872561246112928199, guid: ba672ced76379354bb2e563ce2f723d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -20290,6 +20295,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3986123057098236486, guid: d2968f19a0cda4747ba8b1c91913ca20,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3986123057098236487, guid: d2968f19a0cda4747ba8b1c91913ca20,
         type: 3}
       propertyPath: m_RootOrder
@@ -20557,6 +20567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890830349511381011, guid: bb6a2d826c78e5445b13c4bf8de24a42,
+        type: 3}
+      propertyPath: m_TagString
+      value: UIObstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb6a2d826c78e5445b13c4bf8de24a42, type: 3}

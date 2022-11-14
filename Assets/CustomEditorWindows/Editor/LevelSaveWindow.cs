@@ -41,6 +41,8 @@ public class LevelSaveWindow : EditorWindow
     {
         var obstaclesList = FindObjectsOfType<ObstacleView>();
         var obstacleDTOs = new List<ObstacleDTO>();
+        var types = new List<SavableObjectType>();
+        
         foreach (var view in obstaclesList)
         {
             if (view.gameObject.tag == "UIObstacle")
@@ -51,13 +53,20 @@ public class LevelSaveWindow : EditorWindow
 
             var rotation = new LevelLoading.Vector4(view.transform.rotation.x, view.transform.rotation.y,
                 view.transform.rotation.z, view.transform.rotation.w);
-            
+
+            var scale = new LevelLoading.Vector3(view.transform.localScale.x, view.transform.localScale.y,
+                view.transform.localScale.z);
+
             obstacleDTOs.Add(new ObstacleDTO(position,
-                rotation,
+                rotation, scale,
                 view.Type, view.ScorePerObstacle, view.Level));
+
+            if (!types.Contains(view.Type))
+            {
+                types.Add(view.Type);
+            }
         }
         
-
         var coinList = FindObjectsOfType<CoinView>();
 
         var coinDTOs = new List<CoinDTO>();
@@ -87,10 +96,9 @@ public class LevelSaveWindow : EditorWindow
                     road.transform.rotation.z, road.transform.rotation.w)));
         }
         
-        
-        var level = new Level(obstacleDTOs, coinDTOs, roads, finishDTO, _pointsPerLevel, _maxLevel);
+        var level = new Level(obstacleDTOs, coinDTOs, roads, finishDTO, _pointsPerLevel, _maxLevel, types);
         SaveLoadSystem.SaveLevel(level, _levelName);
-        Debug.Log("Level " + _levelName + " saved successfully");
+        Debug.Log("there are " + types.Count + " different obstacles");
     }
 
     private void LoadLevel()

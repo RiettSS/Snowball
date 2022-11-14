@@ -2712,6 +2712,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209676101903071873, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239213601811596401, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4735013116238695585, guid: 2301562d80e5de646b28d3edd90a80c8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2827,6 +2837,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1130396826}
+    - target: {fileID: 4735013117283137724, guid: 2301562d80e5de646b28d3edd90a80c8,
+        type: 3}
+      propertyPath: _obstaclesParent
+      value: 
+      objectReference: {fileID: 970315192}
     - target: {fileID: 4735013117283137725, guid: 2301562d80e5de646b28d3edd90a80c8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2846,6 +2861,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c9e822b7669164cbbe211def8b5f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &970315192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4735013117336810400, guid: 2301562d80e5de646b28d3edd90a80c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 970315190}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &974709775
 PrefabInstance:
   m_ObjectHideFlags: 0

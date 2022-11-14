@@ -29,6 +29,8 @@ namespace LevelLoading
 
             var obstacleView = obstacle.GetComponent<ObstacleView>();
             obstacleView.ScorePerObstacle = obstacleDto.Score;
+            obstacleView.gameObject.transform.localScale =
+                new UnityEngine.Vector3(obstacleDto.Scale.x, obstacleDto.Scale.y, obstacleDto.Scale.z);
 
             var obstacleModel = new Obstacle(obstacleView.Level, obstacleView.ScorePerObstacle, _collisionHandler);
             var presenter = new ObstaclePresenter(obstacleModel, obstacleView);

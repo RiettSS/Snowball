@@ -21,7 +21,6 @@ public class LevelBrowser : MonoBehaviour
     private void Awake()
     {
         _unlockedLevels = SaveLoadSystem.LoadUnlockedLevelsCount();
-        Debug.Log(_unlockedLevels);
         
         for (int i = 1; i <= _unlockedLevels; i++)
         {
