@@ -9,6 +9,7 @@ TagManager:
   - Road
   - UIObstacle
   - IndicatorIgnore
+  - FinishBarrier
   layers:
   - Default
   - TransparentFX

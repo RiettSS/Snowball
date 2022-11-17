@@ -1,6 +1,8 @@
-﻿using Model;
+﻿using System.Linq;
+using Model;
 using SceneLoading;
 using UnityEngine;
+using View;
 
 namespace LevelLoading
 {
@@ -12,7 +14,7 @@ namespace LevelLoading
         private Ball _ball;
         private IScaler _scaler;
         private Transform _uiIndicatorObstaclesTransform;
-        private LevelLoading.Level _level;
+        private Level _level;
 
         public LevelBuilder(CollisionHandler collisionHandler, LevelLoader levelLoader, ScoreSystem scoreSystem, Ball ball, IScaler scaler, Transform uiTransformTransform)
         {
@@ -51,6 +53,7 @@ namespace LevelLoading
             }
         
             runtimeBuilder.SpawnFinish(_level.Finish);
+            runtimeBuilder.SpawnFinishBarrier(_level.FinishBarrier);
 
             var ballLevel = new Model.Level(0, _level.MaxLevel);
             _ball.ChangeLevel(ballLevel);
@@ -69,6 +72,8 @@ namespace LevelLoading
             {
                 var gameObject = GameObject.Instantiate(IndicatorPrefabDictionary.GetPrefab(obstacleType), _uiIndicatorObstaclesTransform);
                 gameObject.layer = 5;
+                var view = gameObject.GetComponent<ObstacleView>();
+                view.Level = _level.Obstacles.First(x => x.Type == obstacleType).Level; 
                 var nestedGameObjects = gameObject.GetComponentsInChildren<Transform>();
                 foreach (var nestedObject in nestedGameObjects)
                 {

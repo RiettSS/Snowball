@@ -57,8 +57,7 @@ public class LevelSaveWindow : EditorWindow
             var scale = new LevelLoading.Vector3(view.transform.localScale.x, view.transform.localScale.y,
                 view.transform.localScale.z);
 
-            obstacleDTOs.Add(new ObstacleDTO(position,
-                rotation, scale,
+            obstacleDTOs.Add(new ObstacleDTO(new TransformDTO(view.transform),
                 view.Type, view.ScorePerObstacle, view.Level));
 
             if (!types.Contains(view.Type) && view.tag != "IndicatorIgnore")
@@ -78,27 +77,21 @@ public class LevelSaveWindow : EditorWindow
         }
 
         var finish = FindObjectOfType<FinishView>();
-        var finishDTO = new PositionDTO(
-            new LevelLoading.Vector3(finish.transform.position.x, finish.transform.position.y,
-                finish.transform.position.z),
-            new LevelLoading.Vector4(finish.transform.rotation.x, finish.transform.rotation.y,
-                finish.transform.rotation.z, finish.transform.rotation.w));
+        var finishDTO = new TransformDTO(finish.transform);
 
-        var roads = new List<PositionDTO>();
+        var roads = new List<TransformDTO>();
         var roadObjects = GameObject.FindGameObjectsWithTag("Road");
 
         foreach (var road in roadObjects)
         {
-            roads.Add(new PositionDTO(
-                new LevelLoading.Vector3(road.transform.position.x, road.transform.position.y,
-                    road.transform.position.z),
-                new LevelLoading.Vector4(road.transform.rotation.x, road.transform.rotation.y,
-                    road.transform.rotation.z, road.transform.rotation.w)));
+            roads.Add(new TransformDTO(road.transform));
         }
+
+        var finishBarrier = GameObject.FindGameObjectWithTag("FinishBarrier");
+        var barrierDto = new TransformDTO(finishBarrier.transform);
         
-        var level = new Level(obstacleDTOs, coinDTOs, roads, finishDTO, _pointsPerLevel, _maxLevel, types);
+        var level = new Level(obstacleDTOs, coinDTOs, roads, finishDTO, barrierDto, _pointsPerLevel, _maxLevel, types);
         SaveLoadSystem.SaveLevel(level, _levelName);
-        Debug.Log("there are " + types.Count + " different obstacles");
     }
 
     private void LoadLevel()
@@ -125,6 +118,7 @@ public class LevelSaveWindow : EditorWindow
         }
         
         editorBuilder.SpawnFinish(level.Finish);
+        editorBuilder.SpawnFinishBarrier(level.FinishBarrier);
         
         Debug.Log("Level " + _levelName + " loaded successfully");
     }

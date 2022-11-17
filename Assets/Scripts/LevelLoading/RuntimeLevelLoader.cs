@@ -21,16 +21,17 @@ namespace LevelLoading
             var prefab = PrefabDictionary.GetPrefab(obstacleDto.Type);
 
             UnityEngine.Vector3 position =
-                new UnityEngine.Vector3(obstacleDto.Position.x, obstacleDto.Position.y, obstacleDto.Position.z);
+                new UnityEngine.Vector3(obstacleDto.Transform.Position.x, obstacleDto.Transform.Position.y, obstacleDto.Transform.Position.z);
             
-            var quaternion = new Quaternion(obstacleDto.Rotation.x, obstacleDto.Rotation.y, obstacleDto.Rotation.z, obstacleDto.Rotation.w);
+            var quaternion = new Quaternion(obstacleDto.Transform.Rotation.x, obstacleDto.Transform.Rotation.y, obstacleDto.Transform.Rotation.z, obstacleDto.Transform.Rotation.w);
             var obstacle = GameObject.Instantiate(prefab, position, quaternion, null);
             obstacle.transform.parent = parent.transform;
 
             var obstacleView = obstacle.GetComponent<ObstacleView>();
             obstacleView.ScorePerObstacle = obstacleDto.Score;
+            obstacleView.Level = obstacleDto.Level;
             obstacleView.gameObject.transform.localScale =
-                new UnityEngine.Vector3(obstacleDto.Scale.x, obstacleDto.Scale.y, obstacleDto.Scale.z);
+                new UnityEngine.Vector3(obstacleDto.Transform.Scale.x, obstacleDto.Transform.Scale.y, obstacleDto.Transform.Scale.z);
 
             var obstacleModel = new Obstacle(obstacleView.Level, obstacleView.ScorePerObstacle, _collisionHandler);
             var presenter = new ObstaclePresenter(obstacleModel, obstacleView);
@@ -56,31 +57,42 @@ namespace LevelLoading
             presenter.Initialize();
         }
 
-        public void SpawnRoad(PositionDTO positionDto, GameObject parent)
+        public void SpawnRoad(TransformDTO transformDto, GameObject parent)
         {
             var prefab = PrefabDictionary.GetPrefab(SavableObjectType.SnowRoad);
 
             UnityEngine.Vector3 position =
-                new UnityEngine.Vector3(positionDto.Position.x, positionDto.Position.y, positionDto.Position.z);
+                new UnityEngine.Vector3(transformDto.Position.x, transformDto.Position.y, transformDto.Position.z);
             
-            var quaternion = new Quaternion(positionDto.Rotation.x, positionDto.Rotation.y, positionDto.Rotation.z, positionDto.Rotation.w);
+            var quaternion = new Quaternion(transformDto.Rotation.x, transformDto.Rotation.y, transformDto.Rotation.z, transformDto.Rotation.w);
             var road = GameObject.Instantiate(prefab, position, quaternion, null);
             road.transform.parent = parent.transform;
         }
 
-        public void SpawnFinish(PositionDTO positionDto)
+        public void SpawnFinish(TransformDTO transformDto)
         {
             var prefab = PrefabDictionary.GetPrefab(SavableObjectType.Finish);
 
             UnityEngine.Vector3 position =
-                new UnityEngine.Vector3(positionDto.Position.x, positionDto.Position.y, positionDto.Position.z);
+                new UnityEngine.Vector3(transformDto.Position.x, transformDto.Position.y, transformDto.Position.z);
             
-            var quaternion = new Quaternion(positionDto.Rotation.x, positionDto.Rotation.y, positionDto.Rotation.z, positionDto.Rotation.w);
+            var quaternion = new Quaternion(transformDto.Rotation.x, transformDto.Rotation.y, transformDto.Rotation.z, transformDto.Rotation.w);
             var finish = GameObject.Instantiate(prefab, position, quaternion, null);
             var finishView = finish.GetComponent<FinishView>();
             var finishModel = new Finish(_collisionHandler, _scoreSystem);
             var presenter = new FinishPresenter(finishModel, finishView);
             presenter.Initialize();
+        }
+        
+        public void SpawnFinishBarrier(TransformDTO transformDto)
+        {
+            var prefab = PrefabDictionary.GetPrefab(SavableObjectType.FinishBarrier);
+            
+            UnityEngine.Vector3 position =
+                new UnityEngine.Vector3(transformDto.Position.x, transformDto.Position.y, transformDto.Position.z);
+            
+            var quaternion = new Quaternion(transformDto.Rotation.x, transformDto.Rotation.y, transformDto.Rotation.z, transformDto.Rotation.w);
+            var barrier = GameObject.Instantiate(prefab, position, quaternion, null);
         }
     }
 }

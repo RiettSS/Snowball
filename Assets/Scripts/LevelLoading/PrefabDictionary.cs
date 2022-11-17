@@ -17,6 +17,7 @@ namespace LevelLoading
         private static readonly GameObject _blueSpike = Resources.Load("Prefabs/Environment/UnbreakableObstacles/Spike") as GameObject;
         private static readonly GameObject _snowRoad = Resources.Load("Prefabs/Environment/Snowroad") as GameObject;
         private static readonly GameObject _finish = Resources.Load("Prefabs/Finish/Finish") as GameObject;
+        private static readonly GameObject _finishBarrier = Resources.Load("Prefabs/Finish/FinishBarrier") as GameObject;
         
         private static readonly Dictionary<SavableObjectType, GameObject> Dictionary =
             new ()
@@ -33,6 +34,7 @@ namespace LevelLoading
                 {SavableObjectType.Bush, _bush},
                 {SavableObjectType.SnowRoad, _snowRoad},
                 {SavableObjectType.Finish, _finish},
+                {SavableObjectType.FinishBarrier, _finishBarrier},
             };
 
         public static GameObject GetPrefab(SavableObjectType type)

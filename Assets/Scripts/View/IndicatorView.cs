@@ -41,13 +41,12 @@ namespace View
             {
                 HideText();
             }
-            
-            Debug.Log(level + "/" + _maxLevel);
         }
         
         private void ShowObstacleWithLevel(int level)
         {
             HideAllObstacles();
+            CalculateMinAndMaxLevels();
             var obstacle = _obstacleViews.FirstOrDefault(x => x.Level == level);
             obstacle.gameObject.SetActive(true);
         }
@@ -69,6 +68,11 @@ namespace View
         {
             _minLevel = _obstacleViews.Min(x => x.Level);
             _maxLevel = _obstacleViews.Max(x => x.Level);
+
+            foreach (var view in _obstacleViews)
+            {
+                Debug.Log(view.Type + " level is " + view.Level);
+            }
         }
         
         private void Disable()

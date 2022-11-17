@@ -6,13 +6,13 @@ namespace LevelLoading
     public static class IndicatorPrefabDictionary
     {
         private static readonly GameObject _bush = Resources.Load("Prefabs/Environment/Obstacles/Bush/BushIndicator") as GameObject;
-        private static readonly GameObject _gift = Resources.Load("Prefabs/Environment/Obstacles/Giftbox/Giftbox") as GameObject;
-        private static readonly GameObject _snowman = Resources.Load("Prefabs/Environment/Obstacles/Snowman/Snowman") as GameObject;
-        private static readonly GameObject _tent = Resources.Load("Prefabs/Environment/Obstacles/Tent/Tent") as GameObject;
+        private static readonly GameObject _gift = Resources.Load("Prefabs/Environment/Obstacles/Giftbox/GiftboxIndicator") as GameObject;
+        private static readonly GameObject _snowman = Resources.Load("Prefabs/Environment/Obstacles/Snowman/SnowmanIndicator") as GameObject;
+        private static readonly GameObject _tent = Resources.Load("Prefabs/Environment/Obstacles/Tent/TentIndicator") as GameObject;
         private static readonly GameObject _tree = Resources.Load("Prefabs/Environment/Obstacles/Tree/TreeIndicator") as GameObject;
         private static readonly GameObject _house = Resources.Load("Prefabs/Environment/Obstacles/House/HouseIndicator") as GameObject;
-        private static readonly GameObject _fire = Resources.Load("Prefabs/Environment/Obstacles/Fire/Fire") as GameObject;
-        private static readonly GameObject _candy = Resources.Load("Prefabs/Environment/Obstacles/Candy/Candy") as GameObject;
+        private static readonly GameObject _fire = Resources.Load("Prefabs/Environment/Obstacles/Fire/FireIndicator") as GameObject;
+        private static readonly GameObject _candy = Resources.Load("Prefabs/Environment/Obstacles/Candy/CandyIndicator") as GameObject;
         private static readonly GameObject _blueSpike = Resources.Load("Prefabs/Environment/UnbreakableObstacles/Spike") as GameObject;
 
         

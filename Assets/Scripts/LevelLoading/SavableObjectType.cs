@@ -13,6 +13,7 @@
         Coin,
         BlueSpike,
         SnowRoad,
-        Finish
+        Finish,
+        FinishBarrier
     }
 }
