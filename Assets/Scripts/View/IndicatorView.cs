@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Pause;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -46,7 +47,6 @@ namespace View
         private void ShowObstacleWithLevel(int level)
         {
             HideAllObstacles();
-            CalculateMinAndMaxLevels();
             var obstacle = _obstacleViews.FirstOrDefault(x => x.Level == level);
             obstacle.gameObject.SetActive(true);
         }
