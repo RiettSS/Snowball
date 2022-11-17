@@ -10,5 +10,6 @@
         MainMenu,
         LevelBrowser,
         Shop,
+        Pause,
     }
 }
