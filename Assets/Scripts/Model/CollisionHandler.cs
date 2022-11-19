@@ -63,11 +63,21 @@ namespace Model
                 _levelWallet = new Wallet(0);
                 _popUpShower.ShowPopUp(PopUpType.Finish);
                 var nextSceneNum = Int32.Parse(_levelLoader.CurrentLevel) + 1;
-                
-                FirebaseAnalytics.LogEvent("level_success",
-                    new Parameter(FirebaseAnalytics.ParameterLevelName, SceneManager.GetActiveScene().name),
-                    new Parameter(FirebaseAnalytics.ParameterScore, _scoreSystem.Score));
-                
+
+
+                if (SceneManager.GetActiveScene().name == "LevelScreen")
+                {
+                    FirebaseAnalytics.LogEvent("level_success",
+                        new Parameter(FirebaseAnalytics.ParameterLevelName, _levelLoader.CurrentLevel),
+                        new Parameter(FirebaseAnalytics.ParameterScore, _scoreSystem.Score));
+                }
+                else
+                {
+                    FirebaseAnalytics.LogEvent("level_success",
+                        new Parameter(FirebaseAnalytics.ParameterLevelName, SceneManager.GetActiveScene().name),
+                        new Parameter(FirebaseAnalytics.ParameterScore, _scoreSystem.Score));
+                }
+
                 if(nextSceneNum > SaveLoadSystem.LoadUnlockedLevelsCount())
                     SaveLoadSystem.SaveUnlockedLevelsCount(nextSceneNum);
             }
