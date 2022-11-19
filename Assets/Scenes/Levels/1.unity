@@ -5224,7 +5224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1737978849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7228,6 +7228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstaclesParent: {fileID: 4735013117719291414}
   _pointsLeftText: {fileID: 4735013116198352692}
+  _maxLevelObstaclePosition: {fileID: 0}
 --- !u!224 &4735013117974293771
 RectTransform:
   m_ObjectHideFlags: 0
