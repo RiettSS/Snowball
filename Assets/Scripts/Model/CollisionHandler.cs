@@ -50,6 +50,7 @@ namespace Model
         public void Handle(Coin coin)
         {
             _levelWallet.AddCoins(coin.Cost);
+            
             coin.Release();
         }
 
@@ -73,7 +74,7 @@ namespace Model
             else
             {
                 _levelWallet = new Wallet(0);
-                _popUpShower.ShowPopUp(PopUpType.Lose);
+                _popUpShower.ShowPopUp(PopUpType.LoseByLowLevelOnFinish);
                 
                 FirebaseAnalytics.LogEvent("level_defeat_on_finish",
                     new Parameter(FirebaseAnalytics.ParameterLevelName, SceneManager.GetActiveScene().name),

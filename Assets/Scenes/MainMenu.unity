@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f7b15076a27134ab3c113be99d943c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelCount: 20
+  _levelCount: 30
   _buttonPrefab: {fileID: 3009760242221389213, guid: b8f82a9e7630f104eb4853ca9aa0370e,
     type: 3}
   _lockedButtonPrefab: {fileID: 3009760242221389213, guid: 5cf4e635d8a6dc143a8176cbf67c17f8,
@@ -3426,7 +3426,7 @@ PrefabInstance:
     - target: {fileID: 938524307527140825, guid: af55d7fe1e92d9c4fa50cdc2169a600a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: -77
       objectReference: {fileID: 0}
     - target: {fileID: 938524307527140825, guid: af55d7fe1e92d9c4fa50cdc2169a600a,
         type: 3}

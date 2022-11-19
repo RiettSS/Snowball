@@ -11,5 +11,6 @@
         LevelBrowser,
         Shop,
         Pause,
+        LoseByLowLevelOnFinish,
     }
 }

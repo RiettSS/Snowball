@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3021264407661798290
 Transform:
@@ -105,6 +105,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3021264407661798290}
     m_Modifications:
+    - target: {fileID: 1170605025471261100, guid: 3ad6e044aa958174c89916c5925c6711,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2669862676891828295, guid: 3ad6e044aa958174c89916c5925c6711,
         type: 3}
       propertyPath: m_RootOrder
@@ -160,10 +165,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2957628026009507272, guid: 3ad6e044aa958174c89916c5925c6711,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3334512386047892221, guid: 3ad6e044aa958174c89916c5925c6711,
         type: 3}
       propertyPath: m_Name
       value: CandyModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3334512386047892221, guid: 3ad6e044aa958174c89916c5925c6711,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ad6e044aa958174c89916c5925c6711, type: 3}

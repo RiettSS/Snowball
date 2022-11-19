@@ -14,8 +14,13 @@ namespace Vibration
         public static AndroidJavaObject vibrator;
         #endif
 
+        private static bool _vibrationEnabled = true;
+
         public static void Vibrate(long milliseconds = 100)
         {
+            if (!_vibrationEnabled)
+                return;
+            
             if (IsAndroid())
             {
                 vibrator.Call("vibrate", milliseconds);
@@ -26,6 +31,16 @@ namespace Vibration
             }
         }
 
+        public static void TurnOn()
+        {
+            _vibrationEnabled = true;
+        }
+
+        public static void TurnOff()
+        {
+            _vibrationEnabled = false;
+        }
+        
         private static void Cancel()
         {
             if (IsAndroid())

@@ -19,11 +19,6 @@ namespace View
             StartCoroutine(OnSmash());
         }
 
-        public override int GetSaveModel()
-        {
-            return 2;
-        }
-
         private IEnumerator OnSmash()
         {
             yield return new WaitForSeconds(2);

@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 9
   ScorePerObstacle: 0
-  Level: 0
+  Level: 99
   _3dModel: {fileID: 5756722011671097905}
   _slicedPrefab: {fileID: 5756722011671097905}
 --- !u!114 &3369368723109893721

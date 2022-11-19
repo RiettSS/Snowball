@@ -14899,6 +14899,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndingSnowroad
       objectReference: {fileID: 0}
+    - target: {fileID: 7392562762213375304, guid: 8aee6987ca9cea244bcc2e8bab36344f,
+        type: 3}
+      propertyPath: m_TagString
+      value: FinishBarrier
+      objectReference: {fileID: 0}
     - target: {fileID: 8028184007551878798, guid: 8aee6987ca9cea244bcc2e8bab36344f,
         type: 3}
       propertyPath: m_RootOrder
