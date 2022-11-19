@@ -3,7 +3,22 @@ guid: 807a5d978271eb1499449bb6164d32e7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 6ddde6eabcb667b45ab7421bceecf1e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: box
+    second: {fileID: 2100000, guid: 2ec18de7438964947acfc8a03ffd7e77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lenta
+    second: {fileID: 2100000, guid: 2e247b13401e2014582cac380da7f32d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

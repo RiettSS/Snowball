@@ -3,7 +3,22 @@ guid: 6e1bdbff92efab8499ef545e8a8bcd8e
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fire
+    second: {fileID: 2100000, guid: 2e2e2ddcb3d097440baa059e52125d19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pepel
+    second: {fileID: 2100000, guid: d49018618080e504f8c6af440a070c4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: cefcb5b41400d874bb062309bae06fe4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
