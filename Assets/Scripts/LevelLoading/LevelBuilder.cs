@@ -1,8 +1,11 @@
 ﻿using System.Linq;
 using Model;
 using SceneLoading;
+using Sound;
+using TMPro;
 using UnityEngine;
 using View;
+using Zenject;
 
 namespace LevelLoading
 {
@@ -11,19 +14,23 @@ namespace LevelLoading
         private CollisionHandler _collisionHandler;
         private LevelLoader _levelLoader;
         private ScoreSystem _scoreSystem;
+        private SoundSystem _soundSystem;
         private Ball _ball;
         private IScaler _scaler;
         private Transform _uiIndicatorObstaclesTransform;
         private Level _level;
+        private readonly SignalBus _signalBus;
 
-        public LevelBuilder(CollisionHandler collisionHandler, LevelLoader levelLoader, ScoreSystem scoreSystem, Ball ball, IScaler scaler, Transform uiTransformTransform)
+        public LevelBuilder(CollisionHandler collisionHandler, LevelLoader levelLoader, ScoreSystem scoreSystem, SoundSystem soundSystem, Ball ball, IScaler scaler, Transform uiTransformTransform, SignalBus signalBus)
         {
             _collisionHandler = collisionHandler;
             _levelLoader = levelLoader;
             _scoreSystem = scoreSystem;
+            _soundSystem = soundSystem;
             _ball = ball;
             _scaler = scaler;
             _uiIndicatorObstaclesTransform = uiTransformTransform;
+            _signalBus = signalBus;
             
             Debug.Log("current level: " + _levelLoader.CurrentLevel);
             LoadLevel(_levelLoader.CurrentLevel);
@@ -33,7 +40,7 @@ namespace LevelLoading
         {
             _level = SaveLoadSystem.LoadLevel(levelName);
 
-            var runtimeBuilder = new RuntimeLevelLoader(_collisionHandler, _scoreSystem);
+            var runtimeBuilder = new RuntimeLevelLoader(_collisionHandler, _scoreSystem, _signalBus, _soundSystem);
             var coinsParent = new GameObject("Coins");
             foreach (var coin in _level.Coins)
             {

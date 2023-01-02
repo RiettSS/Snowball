@@ -1,4 +1,7 @@
 ﻿using System;
+using Signals;
+using Sound;
+using Zenject;
 
 namespace Model
 {
@@ -10,12 +13,16 @@ namespace Model
         public readonly int Score;
 
         private CollisionHandler _collisionHandler;
-        
-        public Obstacle(int level, int score, CollisionHandler collisionHandler)
+        private SignalBus _signalBus;
+        private SoundSystem _soundSystem;
+
+        public Obstacle(int level, int score, CollisionHandler collisionHandler, SignalBus signalBus, SoundSystem soundSystem)
         {
             Level = level;
             Score = score;
             _collisionHandler = collisionHandler;
+            _signalBus = signalBus;
+            _soundSystem = soundSystem;
         }
 
         public void Collide()
@@ -25,6 +32,8 @@ namespace Model
 
         public void Smash()
         {
+            //_signalBus.Fire<ObstacleSmashedSignal>();
+            _soundSystem.PlaySound(SoundType.ObstacleSmashed);
             OnSmash?.Invoke();
         }
     }

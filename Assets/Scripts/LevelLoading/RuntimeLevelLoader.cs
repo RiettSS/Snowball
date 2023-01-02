@@ -1,7 +1,9 @@
 ﻿using Model;
 using Presenter;
+using Sound;
 using UnityEngine;
 using View;
+using Zenject;
 
 namespace LevelLoading
 {
@@ -9,11 +11,16 @@ namespace LevelLoading
     {
         private CollisionHandler _collisionHandler;
         private ScoreSystem _scoreSystem;
+        private SoundSystem _soundSystem;
+        private readonly SignalBus _signalBus;
 
-        public RuntimeLevelLoader(CollisionHandler collisionHandler, ScoreSystem scoreSystem)
+        public RuntimeLevelLoader(CollisionHandler collisionHandler, ScoreSystem scoreSystem, SignalBus signalBus,
+            SoundSystem soundSystem)
         {
             _collisionHandler = collisionHandler;
             _scoreSystem = scoreSystem;
+            _signalBus = signalBus;
+            _soundSystem = soundSystem;
         }
 
         public void SpawnObstacle(ObstacleDTO obstacleDto, GameObject parent)
@@ -33,7 +40,7 @@ namespace LevelLoading
             obstacleView.gameObject.transform.localScale =
                 new UnityEngine.Vector3(obstacleDto.Transform.Scale.x, obstacleDto.Transform.Scale.y, obstacleDto.Transform.Scale.z);
 
-            var obstacleModel = new Obstacle(obstacleView.Level, obstacleView.ScorePerObstacle, _collisionHandler);
+            var obstacleModel = new Obstacle(obstacleView.Level, obstacleView.ScorePerObstacle, _collisionHandler, _signalBus, _soundSystem);
             var presenter = new ObstaclePresenter(obstacleModel, obstacleView);
             presenter.Initialize();
         }
