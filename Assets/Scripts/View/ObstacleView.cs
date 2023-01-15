@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using LevelLoading;
+using Sound;
 using UnityEngine;
 
 namespace View

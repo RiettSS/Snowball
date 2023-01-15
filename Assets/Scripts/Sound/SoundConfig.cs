@@ -11,8 +11,8 @@ public class SoundConfig : ScriptableObject
     [Serializable]
     public class Sound
     {
-        public AudioClip Clip;
         public SoundType SoundType;
+        public List<AudioClip> Clips;
     }
 }
 

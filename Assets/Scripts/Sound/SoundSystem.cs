@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using LevelLoading;
 using UnityEngine;
 using Zenject;
 
@@ -28,15 +29,60 @@ namespace Sound
         {
             var clip = FindClip(type);
             var audioSource = FindSource();
-
+            
             audioSource.clip = clip;
+            
+            Debug.Log(type.ToString() + " is playing");
+            
             audioSource.Play();
+        }
+
+        public void PlaySound(SavableObjectType type)
+        {
+            switch (type)
+            {
+                case SavableObjectType.Bush:
+                    PlaySound(SoundType.Bush);
+                    break;
+                case SavableObjectType.Tree:
+                    PlaySound(SoundType.Tree);
+                    break;
+                case SavableObjectType.Tent:
+                    PlaySound(SoundType.Tent);
+                    break;
+                case SavableObjectType.Gift:
+                    PlaySound(SoundType.Gift);
+                    break;
+                case SavableObjectType.Snowman:
+                    PlaySound(SoundType.Snowman);
+                    break;
+                case SavableObjectType.Candy:
+                    PlaySound(SoundType.Candy);
+                    break;
+                case SavableObjectType.House:
+                    PlaySound(SoundType.House);
+                    break;
+                case SavableObjectType.Fire:
+                    PlaySound(SoundType.Fire);
+                    break;
+                case SavableObjectType.Coin:
+                    PlaySound(SoundType.Coin);
+                    break;
+                case SavableObjectType.BlueSpike:
+                    PlaySound(SoundType.BlueSpike);
+                    break;
+                case SavableObjectType.Finish:
+                    PlaySound(SoundType.Finish);
+                    break;
+            }
         }
 
         private AudioClip FindClip(SoundType type)
         {
-            var clip = _soundConfig.Sounds.First(x => x.SoundType == type).Clip;
+            var clips = _soundConfig.Sounds.First(x => x.SoundType == type).Clips;
 
+            var clip = clips[Random.Range(0, clips.Count)];
+            
             if (clip == null)
             {
                 Debug.LogError("No such sound in list: " + type);

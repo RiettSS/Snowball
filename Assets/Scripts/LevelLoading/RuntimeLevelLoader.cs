@@ -40,7 +40,7 @@ namespace LevelLoading
             obstacleView.gameObject.transform.localScale =
                 new UnityEngine.Vector3(obstacleDto.Transform.Scale.x, obstacleDto.Transform.Scale.y, obstacleDto.Transform.Scale.z);
 
-            var obstacleModel = new Obstacle(obstacleView.Level, obstacleView.ScorePerObstacle, _collisionHandler, _signalBus, _soundSystem);
+            var obstacleModel = new Obstacle(obstacleView.Level, obstacleView.ScorePerObstacle, _collisionHandler, _signalBus, _soundSystem, obstacleDto.Type);
             var presenter = new ObstaclePresenter(obstacleModel, obstacleView);
             presenter.Initialize();
         }

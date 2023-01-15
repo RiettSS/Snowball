@@ -13,5 +13,50 @@ MonoBehaviour:
   m_Name: SoundConfig
   m_EditorClassIdentifier: 
   Sounds:
-  - Clip: {fileID: 8300000, guid: ef091cc3096244787ad3b889c6c9231d, type: 3}
-    SoundType: 0
+  - SoundType: 0
+    Clips: []
+  - SoundType: 1
+    Clips:
+    - {fileID: 8300000, guid: ef091cc3096244787ad3b889c6c9231d, type: 3}
+    - {fileID: 8300000, guid: 61ff715c8c50949709f3617563989cf3, type: 3}
+  - SoundType: 2
+    Clips:
+    - {fileID: 8300000, guid: 4d9fb000e7335418a9dee90f4e37d065, type: 3}
+    - {fileID: 8300000, guid: c020f5c5b90274dc6ba4e51400d9afae, type: 3}
+  - SoundType: 3
+    Clips:
+    - {fileID: 8300000, guid: 1c0edea8bceef4615ad52b15041a40cf, type: 3}
+    - {fileID: 8300000, guid: f87832392aeec4a4ca3b089c7ab32685, type: 3}
+    - {fileID: 8300000, guid: bad15b55a21ef4349953859c8520b5f2, type: 3}
+  - SoundType: 4
+    Clips:
+    - {fileID: 8300000, guid: b8e958cc943854f9c9e5510c4eb273e4, type: 3}
+    - {fileID: 8300000, guid: f74df009781e146e38d295c2e27a341f, type: 3}
+  - SoundType: 5
+    Clips:
+    - {fileID: 8300000, guid: 845f90dabf52e4161a498acd71e10ead, type: 3}
+    - {fileID: 8300000, guid: 00719aac109a44c3bacb548306a5e386, type: 3}
+  - SoundType: 6
+    Clips:
+    - {fileID: 8300000, guid: a1097c1f293e547aea943719bd565ce0, type: 3}
+    - {fileID: 8300000, guid: d1d68681e3a244fdeb4abc92a2cc750d, type: 3}
+  - SoundType: 7
+    Clips:
+    - {fileID: 8300000, guid: 6cae41dc0824c9e4bb8c22cf98847979, type: 3}
+    - {fileID: 8300000, guid: 089c1d68da9bb67458ac050cc5a638be, type: 3}
+    - {fileID: 8300000, guid: 9bc81825ffbd7eb41a96bdbdf71accfd, type: 3}
+  - SoundType: 8
+    Clips:
+    - {fileID: 8300000, guid: 8df24142cfd7e48f99edfe898743489b, type: 3}
+  - SoundType: 9
+    Clips:
+    - {fileID: 8300000, guid: 08b8426e054009349ad3d90fbea41a15, type: 3}
+    - {fileID: 8300000, guid: c71fd19bfd4dbb942b68c8168985ea53, type: 3}
+  - SoundType: 10
+    Clips:
+    - {fileID: 8300000, guid: a1097c1f293e547aea943719bd565ce0, type: 3}
+    - {fileID: 8300000, guid: d1d68681e3a244fdeb4abc92a2cc750d, type: 3}
+  - SoundType: 11
+    Clips:
+    - {fileID: 8300000, guid: a1097c1f293e547aea943719bd565ce0, type: 3}
+    - {fileID: 8300000, guid: d1d68681e3a244fdeb4abc92a2cc750d, type: 3}
