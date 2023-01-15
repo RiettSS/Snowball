@@ -1,5 +1,6 @@
 using Model;
 using SceneLoading;
+using Sound;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -10,12 +11,14 @@ public class LosePopUp : MonoBehaviour
 
     private ScoreSystem _scoreSystem;
     private LevelLoader _levelLoader;
-    
+    private SoundSystem _soundSystem;
+
     [Inject]
-    public void Construct(ScoreSystem scoreSystem, LevelLoader levelLoader)
+    public void Construct(ScoreSystem scoreSystem, LevelLoader levelLoader, SoundSystem soundSystem)
     {
         _scoreSystem = scoreSystem;
         _levelLoader = levelLoader;
+        _soundSystem = soundSystem;
     }
     
     public void Replay()

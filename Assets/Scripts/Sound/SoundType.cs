@@ -13,6 +13,11 @@ namespace Sound
         Fire,
         Coin,
         BlueSpike,
-        Finish,
+        Lose,
+        MenuMusic,
+        GameplayMusic,
+        Wind,
+        Win,
+        ButtonClick
     }
 }

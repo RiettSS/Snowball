@@ -12,7 +12,7 @@ namespace Istallers.GameObjectInstaller
         
         public override void InstallBindings()
         {
-            Container.Bind<Obstacle>().AsSingle().WithArguments(_view.Level, _view.ScorePerObstacle);
+            Container.Bind<Obstacle>().AsSingle().WithArguments(_view.Level, _view.ScorePerObstacle, _view.Type);
             Container.BindInterfacesAndSelfTo<ObstacleView>().FromInstance(_view).AsSingle();
             Container.BindInterfacesAndSelfTo<ObstaclePresenter>().AsSingle();
         }

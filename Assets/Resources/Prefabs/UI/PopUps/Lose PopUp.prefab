@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 5
+  _popSound: 11
 --- !u!114 &4210612816375568066
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using Model;
 using SceneLoading;
+using Sound;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -12,14 +13,16 @@ public class FinishPopUp : MonoBehaviour
     private ScoreSystem _scoreSystem;
     private Wallet _wallet;
     private LevelLoader _levelLoader;
+    private SoundSystem _soundSystem;
     private int _coinsOnLevel;
 
     [Inject]
-    public void Construct(ScoreSystem scoreSystem, Wallet wallet, LevelLoader levelLoader)
+    public void Construct(ScoreSystem scoreSystem, Wallet wallet, LevelLoader levelLoader, SoundSystem soundSystem)
     {
         _scoreSystem = scoreSystem;
         _wallet = wallet;
         _levelLoader = levelLoader;
+        _soundSystem = soundSystem;
     }
 
     public void LoadNextLevel()

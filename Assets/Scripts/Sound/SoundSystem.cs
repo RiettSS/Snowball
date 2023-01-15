@@ -71,12 +71,23 @@ namespace Sound
                 case SavableObjectType.BlueSpike:
                     PlaySound(SoundType.BlueSpike);
                     break;
-                case SavableObjectType.Finish:
-                    PlaySound(SoundType.Finish);
-                    break;
             }
         }
 
+        public AudioSource PlayLooped(SoundType soundType)
+        {
+            var audioSource = FindSource();
+            var clip = FindClip(soundType);
+            
+            audioSource.loop = true;
+            audioSource.clip = clip;
+            audioSource.Play();
+
+            Debug.Log(soundType.ToString() + " is playing");
+            
+            return audioSource;
+        }
+        
         private AudioClip FindClip(SoundType type)
         {
             var clips = _soundConfig.Sounds.First(x => x.SoundType == type).Clips;
@@ -99,6 +110,8 @@ namespace Sound
             try
             {
                 result = _audioSources.First(x => x.isPlaying == false);
+                result.loop = false;
+                result.volume = 1;
             }
             catch
             {
